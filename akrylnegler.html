@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neglesalong</title>
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/8.6.5/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.6.5/firebase-firestore.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyCIM0ctT3u8O7YbT0B8To4oDOOUZ6j8HVU",
+    authDomain: "neglsalong-b38e7.firebaseapp.com",
+    projectId: "neglsalong-b38e7",
+    storageBucket: "neglsalong-b38e7.appspot.com",
+    messagingSenderId: "1056855543621",
+    appId: "1:1056855543621:web:76e5d356ae3f7c1920382c"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+</script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Neglesalong</h1>
+       <h4>Akrylnegler</h4>
+    </header>
+    <main>
+        <article id="tilbakeknapp">
+            <a href="index.html">
+                Tilbake
+            </a>
+
+        </article>
+
+        <section id="sortering">
+            <div>
+                <select id="selSorter" onchange="hentAlleAkryl()">
+                    <option value="asc">Pris lav til høy</option>
+                    <option value="desc">Pris høy til lav</option>
+                </select>
+            </div>
+
+        </section>
+
+        <article id="artAkryl">
+
+        </article>
+
+           
+
+    </main>
+
+    <footer>
+
+    </footer>
+    <script>
+    
+    const db = firebase.firestore();
+    const Akryl= db.collection("Akryl");
+
+            const artAkryl = document.querySelector("#artAkryl");
+            const sorteringsKnapper = document.querySelectorAll("#sortering button");
+            const selSorter = document.querySelector("#selSorter");
+
+            const hentAlleAkryl = async () => {
+                const svar = await Akryl.orderBy("Pris", selSorter.value).get();
+                artAkryl.innerHTML = ``;
+                for(const Akryl of svar.docs){
+                    lagAkrylHTML(Akryl.id, Akryl.data());
+                }
+            }
+
+            const lagAkrylHTML = (id, Akryl) => {
+                artAkryl.innerHTML += `
+                <section class="sectyper">
+                <div>
+                <h3> ${Akryl.Navn}</h3>
+                </div>
+                <div>
+                <h5> Tid: ${Akryl.Tid}min</h5>
+                </div>
+                <div>
+                <h5> Pris: ${Akryl.Pris}kr</h5>
+                </div> 
+                </section>
+            `;
+            }
+
+            hentAlleAkryl();
+
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neglesalong</title>
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/8.6.5/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.6.5/firebase-firestore.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyCIM0ctT3u8O7YbT0B8To4oDOOUZ6j8HVU",
+    authDomain: "neglsalong-b38e7.firebaseapp.com",
+    projectId: "neglsalong-b38e7",
+    storageBucket: "neglsalong-b38e7.appspot.com",
+    messagingSenderId: "1056855543621",
+    appId: "1:1056855543621:web:76e5d356ae3f7c1920382c"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+</script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Neglesalong</h1>
+       <h4>Vanlig manekyr</h4>
+        <article id="tilbakeknapp">
+            <a href="index.html">
+                Tilbake
+            </a>
+
+        </article>
+
+    </header>
+
+    <main>
+        <section id="sortering">
+            <div>
+                <select id="selSorter" onchange="hentAlleManikyr()">
+                    <option value="asc">Pris lav til høy</option>
+                    <option value="desc">Pris høy til lav</option>
+                </select>
+            </div>
+
+        </section>
+
+        <article id="artManikyr">
+
+        </article>
+           
+
+    </main>
+
+    <footer>
+
+    </footer>
+    <script>
+
+const db = firebase.firestore();
+const Manikyr= db.collection("Manikyr");
+
+            const artManikyr = document.querySelector("#artManikyr");
+            const sorteringsKnapper = document.querySelectorAll("#sortering button");
+            const selSorter = document.querySelector("#selSorter");
+
+            const hentAlleManikyr = async () => {
+                const svar = await Manikyr.orderBy("Pris", selSorter.value).get();
+                artManikyr.innerHTML = ``;
+                for(const Manikyr of svar.docs){
+                    lagManikyrHTML(Manikyr.id, Manikyr.data());
+                }
+            }
+
+            const lagManikyrHTML = (id, Manikyr) => {
+                artManikyr.innerHTML += `
+                <section class="sectyper">
+                <div>
+                <h3> ${Manikyr.Navn}</h3>
+                </div>
+                <div>
+                <h5> Tid: ${Manikyr.Tid}min</h5>
+                </div>
+                <div>
+                <h5> Pris: ${Manikyr.Pris}kr</h5>
+                </div> 
+                </section>
+            `;
+            }
+
+            hentAlleManikyr();
+
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,86 @@
+h1{
+    text-align: center;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 50px;
+    color:rgb(242, 168, 180);
+    background-color:rgb(244, 244, 244);
+}
+nav{
+    border-bottom: solid 2px black;
+    display: flex;
+    justify-content: space-around;
+}
+nav a{
+    color: black;
+    text-decoration: none;
+    font-size: 30px;
+}
+nav a:hover{
+    color: grey;
+}
+.indexgrid{
+    margin-top: 50px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 25px;
+}
+img{
+    width: 100%;
+}
+h3{
+    text-align: center;
+    font-size: 30px;
+    color:rgb(242, 168, 180);
+
+}
+p{
+    font-size: 18px;
+}
+a img:hover{
+    filter: blur(1px);
+}
+h2{
+    margin-top: 50px;
+    text-align: center;
+    font-size: 40px;
+    text-decoration: underline;
+}
+h5{
+    text-align: center;
+    font-size: 20px;
+}
+#active{
+   color:rgb(242, 168, 180); ;
+}
+h6{
+    font-size: 20px;
+    text-align: center;
+}
+.artom{
+    margin-top: 40px;
+    background-color: whitesmoke;
+}
+h4{
+    font-size: 35px;
+    border-bottom: solid 1px black;
+    text-align: center;
+}
+#tilbakeknapp a{
+    text-decoration: none;
+    color: black;
+    font-size: 20px;
+}
+#tilbakeknapp a:hover{
+    color: grey;
+}
+.sectyper{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    border: solid black 1px;
+    margin-top: 20px;
+}
+#sortering{
+    margin-top: 20px;
+}
+
+
