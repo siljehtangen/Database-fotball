@@ -1,59 +1,89 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="no">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Neglesalong</title>
+    <title>Musikkbiblioteket</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-firestore.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+        https://firebase.google.com/docs/web/setup#available-libraries -->
+
+    <script>
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+        apiKey: "AIzaSyDTN_SVoN6fiGHeVxR3gGUS6ymSqlqqRv8",
+        authDomain: "musikkbiblioteket-f0ac5.firebaseapp.com",
+        projectId: "musikkbiblioteket-f0ac5",
+        storageBucket: "musikkbiblioteket-f0ac5.appspot.com",
+        messagingSenderId: "112868277657",
+        appId: "1:112868277657:web:14d6796f415ea86497a708"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    </script>
 </head>
 <body>
     <header>
-        <h1>Neglesalong</h1>
+        <h1>Musikkbiblioteket</h1>
         <nav>
-            <a id="active" href="index.html">Hjem</a>  
-            <a href="om.html"> Om oss</a>
-            <a href="kontakt.html"> Kontakt oss</a>
+            <a href="artister.html">Artister</a>
+            <a href="album.html">Album</a>
         </nav>
 
     </header>
-
     <main>
-        <section class="indexgrid">
-            <article>
-                <a href="gelenegler.html">
-                    <img src="bilder/gel.jpg" alt="">
-                </a>
-                <h3>Gelenegler</h3>
-                <p>
-                    Gele negler er den perfekte løsningen for alle som drømmer om sterkere, lengre og penere negler. Dette er det ideelle for dem som lett får sprukne negler og flisete negler eller for neglebitere. Gelenegler er lett og har et naturlig utseende. De kommer i trendy farger og design, samt tidløse, klassiske og elegante som fransk manikyr.
-                </p>
-            </article>
-            <article>
-                <a href="akrylnegler.html">
-                    <img src="bilder/akryl.jpg" alt="">
-                </a>
-                <h3>Akrylnegler</h3>
-                <p>
-                    Akryl negler er en metode basert på kombinasjonen av akrylpulver (polymer) og akrylvæske (monomer). Akrylteknikken er en verdsatt og populært brukt i negledesign konkurranser grunnet enkelheten i ornamentikk og endelige resultat.  I tillegg lar akryl deg lage de mest fancy dekorasjoner, for eksempel: abstrakte mønstre eller farget glass mønstre.
-                </p>
-            </article>
-            <article>
-                <a href="manikyr.html">
-                    <img src="bilder/manikyr.jpg" alt="">
-                </a>
-                <h3>Vanlig manikyr</h3>
-                <p>
-                    En vanlig manikyr kan bidra til å holde huden og neglene sunne, glatte og myke. Manikyr er også nyttig for å stramme og tone huden.
-                    Våre hender blir utsatt for mange kjemikalier. Manikyr er nyttig for å redusere sjansene for infeksjon og sopp i hendene. Vi vil hjelpe deg med å fjerne den døde og skadede huden. 
-                </p>
-            </article>
-        </section>
+        <article id="artAlbum">
 
-
+        </article>
     </main>
+        <script>
+            const db = firebase.firestore();
+            const Album = db.collection("Album");
 
-    <footer>
+            const artAlbum = document.querySelector("#artAlbum");
 
-    </footer>
+
+            const hentAlleAlbum = async () => {
+                const svar = await Album.get();
+                for(const album of svar.docs){
+                    console.log(album.data());
+                    lagAlbumHTML(album.data());
+                }
+                /*
+                console.log(svar.docs[0].data());
+                console.log(svar.docs[1].data());
+                console.log(svar.docs[2].data());
+                console.log(svar.docs[3].data());
+                console.log(svar.docs[4].data());
+                */
+            }
+
+            const lagAlbumHTML = (album) => {
+                artAlbum.innerHTML += `
+                 <div>
+                    <img src="bilder/${album.bilde}">
+                
+                 </div>
+                 `;
+            }
+            {
+                /* <h3>${album.navn} </h3>
+                    <h3>${album.artist} </h3>
+                    <h3>${album.aar} </h3>
+                    <h3>${album.sjanger} </h3>
+                    <h3>${album.beskrivelse} </h3>
+                    */
+            }
+
+            hentAlleAlbum();
+
+        </script>
+
 </body>
 </html>

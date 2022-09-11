@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Musikkbiblioteket</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-firestore.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+        https://firebase.google.com/docs/web/setup#available-libraries -->
+
+    <script>
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+        apiKey: "AIzaSyDTN_SVoN6fiGHeVxR3gGUS6ymSqlqqRv8",
+        authDomain: "musikkbiblioteket-f0ac5.firebaseapp.com",
+        projectId: "musikkbiblioteket-f0ac5",
+        storageBucket: "musikkbiblioteket-f0ac5.appspot.com",
+        messagingSenderId: "112868277657",
+        appId: "1:112868277657:web:14d6796f415ea86497a708"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    </script>
+</head>
+<body>
+    <header>
+        <h1>Musikkbiblioteket</h1>
+        <nav>
+            <a href="artister.html">Artister</a>
+            <a class="active" href="album.html">Album</a>
+        </nav>
+
+    </header>
+    <main>
+        <section id="sortering">
+            <h2>Sortering</h2>
+            <div>
+                <button id="alle" onclick="hentAlleAlbum()">Alle</button>
+                <button id="pop" onclick="hentPopAlbum()">Pop</button>
+                <button id="indie" onclick="hentIndieAlbum()">Indie</button>
+                <select id="selSorter" onchange="hentAlleAlbum()">
+                    <option value="asc">År lav til høy</option>
+                    <option value="desc">År høy til lav</option>
+                </select>
+            </div>
+
+        </section>
+
+        <article id="artAlbum">
+
+        </article>
+    </main>
+
+        <script>
+            const db = firebase.firestore();
+            const Album = db.collection("Album");
+
+            const artAlbum = document.querySelector("#artAlbum");
+            const btnAlle = document.querySelector("#alle");
+            const btnIndie = document.querySelector("#indie");
+            const btnPop = document.querySelector("#pop");
+            const sorteringsKnapper = document.querySelectorAll("#sortering button");
+            const selSorter = document.querySelector("#selSorter");
+
+
+            const hentAlleAlbum = async () => {
+                fjernUnderstreker();
+                btnAlle.classList.add("active");
+                artAlbum.innerHTML = ``;
+                const svar = await Album.orderBy("aar", selSorter.value).get();
+                for(const album of svar.docs){
+                    console.log(album.data());
+                    lagAlbumHTML(album.id, album.data());
+                }
+            }
+            const hentIndieAlbum = async () => {
+                fjernUnderstreker();
+                btnIndie.classList.add("active");
+                artAlbum.innerHTML = ``;
+                const svar = await Album.orderBy("aar", selSorter.value).where("sjanger","==","Indie").get();
+                for(const album of svar.docs){
+                    lagAlbumHTML(album.id, album.data());
+                }
+            }
+
+            const hentPopAlbum = async () =>{
+                fjernUnderstreker();
+                btnPop.classList.add("active");
+                artAlbum.innerHTML = ``;
+                const svar = await Album.orderBy("aar", selSorter.value).where("sjanger","==","Pop").get();
+                for(const album of svar.docs){
+                lagAlbumHTML(album.id, album.data());
+            }
+
+            }
+            /* const hentAlbumMedSjanger = async (sjanger) =>{
+                artAlbum.innerHTML = ``;
+                const svar = await Album.where("sjanger","==",sjanger).get();
+                for(const album of svar.docs){
+                    lagAlbumHTML(album.data());
+                }
+            */
+            
+
+
+                /*
+                console.log(svar.docs[0].data());
+                console.log(svar.docs[1].data());
+                console.log(svar.docs[2].data());
+                console.log(svar.docs[3].data());
+                console.log(svar.docs[4].data());
+                */
+            
+
+    
+            
+            const lagAlbumHTML = (id, album) => {
+                artAlbum.innerHTML += `
+                 <div>
+                    <a href="underside.html?id=${id}">
+                    <img src="bilder/${album.bilde}">
+                    </a>
+                 </div>
+                 `;
+            }
+            {
+                /* <h3>${album.navn} </h3>
+                    <h3>${album.artist} </h3>
+                    <h3>${album.aar} </h3>
+                    <h3>${album.sjanger} </h3>
+                    <h3>${album.beskrivelse} </h3>
+                    */
+            }
+            const fjernUnderstreker = () => {
+                for(const knapp of sorteringsKnapper){
+                    knapp.classList.remove("active");
+                }
+            }
+
+            hentAlleAlbum();
+
+        </script>
+
+</body>
+</html>
