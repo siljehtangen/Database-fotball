@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Den neste fotballgenerasjonen</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Zen+Dots&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/nav.css">
+    <link rel="stylesheet" href="css/felles.css">
+    <link rel="stylesheet" href="css/ferdighet.css">
+    <link rel="stylesheet" href="file:///Users/siljetangen/Downloads/fontawesome-free-5.15.3-web/css/all.css">
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-firestore.js"></script>
+        
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+         https://firebase.google.com/docs/web/setup#available-libraries -->
+        
+    <script>
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+        apiKey: "AIzaSyAH22MpKolUDWuk3FNe-QZLWSE3f18enGw",
+        authDomain: "talent-5b043.firebaseapp.com",
+        projectId: "talent-5b043",
+        storageBucket: "talent-5b043.appspot.com",
+        messagingSenderId: "379030084325",
+        appId: "1:379030084325:web:f5b6188730d3bbeeb9920c"
+     };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    </script>
+
+</head>
+<body>
+    <header>
+
+        <section class="secOverskrift">
+            <article>
+                <img src="bilder/index/fotball.png" alt="">
+            </article >
+            <article>
+                <h1>40 BESTE BALLTALENTENE</h1>
+            </article>
+            <article>
+                <img src="bilder/index/fotball.png" alt="">
+            </article>
+        </section>
+
+        <section class="secHoved">
+            <article>
+                <img src="bilder/index/hovedbilde.jpg" alt="">
+            </article>
+            <article>
+                <img src="bilder/index/hovedbilde2.jpg" alt="">
+            </article>
+            <article>
+                <img src="bilder/index/hovedbilde3.jpg" alt="">
+            </article>
+        </section>
+
+        <article id="ferdighethjem">
+            <a href="index.html">
+                <i class="fas fa-home"></i>
+            </a>
+        </article>
+
+        <div id="sidebar" onclick="togglemenu()">
+            <div class="toggle-btn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul>
+                <a href="mentalitet.html">
+                    <li>Mentalitet</li>
+
+                </a>
+                <a href="spilleforståelse.html">
+                    <li>Spilleforståelse</li>
+                </a>
+                <a href="overblikk.html">
+                    <li>Overblikk</li>
+                </a>
+                <a href="styrke.html">
+                    <li>Styrke</li>
+
+                </a>
+                <a href="smidighet.html">
+                    <li id="color">Smidighet</li>
+                </a>
+                <a href="hurtighet.html">
+                    <li>Hurtighet</li>
+                </a>
+                <a href="utholdenhet.html">
+                    <li>Utholdenhet</li>
+                </a>
+                <a href="teknikk.html">
+                    <li>Teknikk</li>
+
+                </a>
+
+            </ul>
+        </div>
+    
+
+
+    </header>
+    <main>
+        <h2 id="ferdighetoverskrift">SMIDIGHET</h2>
+
+        <p class="ferdighet-tekst">Smidighet er evnen til å bevege seg raskt og enkelt. I fotball er smidighet en av de viktigste egenskapene. Hver profesjonell fotballspiller vil være mer smidig enn den gjennomsnittlige personen på grunn av at de er eliteidrettsutøvere og at rask bevegelse er viktig.
+            For alle spillere er muligheten til å snu seg raskt viktig. Spillet spilles så raskt at spillerne hele tiden snur og vender for å få innvirkning på spillet. For eksempel kan angripende spillere snu og vri seg raskt med og uten ballen for å prøve å komme seg rundt forsvarere eller unnslippe fra deres stramme markering. 
+            Samlet sett er fotballfleksibilitet en av de viktigste ferdighetene. Ofte de beste spillerne i verden; er spillere som er raske og kan drible i tempo, endre retning uten å miste balanse. Moderne fotball har absolutt skiftet mot å favorisere de mest atletiske spillerne på grunn av både taktiske spillestiler, samt fremskritt og fokus på sportsvitenskap, ernæring og kondisjon. Det er tydelig at elitespillere i disse dager er langt mer atletiske og smidige enn legendene fra forrige epoker.
+        </p>
+           
+            <h4 id="ferdighet-spillerskrift">Spillere:</h4>
+
+            <section id="secFerdighetspiller"></section>
+       
+
+    </main>
+
+    <script>
+        function togglemenu(){
+            document.getElementById('sidebar').classList.toggle('active');
+        }
+        const db  = firebase.firestore();
+        const spiller = db.collection("spiller");
+
+        const secFerdighetspiller = document.querySelector("#secFerdighetspiller");
+
+        const hentFerdighetspiller= async () => {
+            const svar = await spiller.where("ferdighet","==","Smidighet").get();
+            for(const spiller of svar.docs){
+                console.log(spiller.data());
+                lagFerdighetspillerHTML(spiller.id, spiller.data());
+            }
+        }
+
+
+        const lagFerdighetspillerHTML = (id, spiller) => {
+            secFerdighetspiller.innerHTML += `
+              <div>
+                <a href="profil.html?id=${id}">
+                <img src="bilder/fotballspillere/${spiller.bilde}">
+                </a>
+              </div>
+            `;
+        }
+
+        hentFerdighetspiller();
+        
+      
+    </script>
+
+    
+</body>
+</html>

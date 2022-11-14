@@ -1,0 +1,374 @@
+
+#listeSortering{
+    display: block;
+    margin-left: 500px;
+    margin-top: 30px;
+}
+#artspiller{
+    display: block;
+    margin-right: 300px;
+    margin-left: 300px;
+    border-radius: 20px;
+
+}
+#fotball-liste{
+    position: relative;
+    width: 450px;
+    margin: 100px auto 0;
+    box-sizing: border-box;
+    background: rgba(0,0,0,.1);
+    box-shadow: inset 0 0 15px rgba(0,0,0,.2);
+    border-radius: 5px;
+    margin-top: 50px;
+
+}
+#fotball-liste li{
+    display: flex;
+    background: rgba(255,255,255,.1); 
+    padding: 10px 20px;
+    color: lightgrey;
+    margin: 5px 0;
+    transition: .5s;
+    margin-top: 5px;
+}
+#fotball-liste li span:nth-child(1){
+    width: 70px;
+}
+#fotball-liste li:hover{
+    transform: scale(1.06);
+    background: lightslategrey;
+
+}
+#liste a{
+    text-decoration: none;
+}
+#liste span{
+    color: black;
+}
+#tilbakeknapp{
+    color: lightslategrey;
+
+}
+#tilbakeknapp:hover{
+    color: rgb(99, 161, 182);
+}
+#artAllespiller img{
+    width: 260px;
+    margin-top: 20px;
+}
+#artAllespiller img:hover{
+    width: 265px;
+}
+.spillerlogo{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 70px;
+    margin-top: 70px;
+}
+#artAllespiller{
+    display: grid;
+    grid-template-columns: repeat(5,1fr);
+    grid-gap: 22px;
+    margin-top: 50px;
+}
+#artAllespiller2{
+    display: grid;
+    grid-template-columns: repeat(5,1fr);
+    grid-gap: 30px;
+}
+#artAllespiller h3{
+    color:  rgb(107, 130, 154);
+    text-align: center;
+}
+#selAlleSorter{
+    margin-top: 50px;
+    background-color: rgb(149, 164, 181);
+}
+
+#alleSortering button{
+    background-color: whitesmoke;
+    border: none;
+    color:  rgb(77, 90, 104);
+}
+#alleSortering button:hover{
+    color: darkgrey;
+}
+
+#allehovedskrift{
+    margin-top: 30px;
+    font-size: 25px;
+    margin-bottom: 30px;
+    color: rgb(107, 130, 154);
+    text-decoration: underline;
+}
+#listehovedskrift{
+    margin-top: 20px;
+    font-size: 25px;
+    margin-bottom: 20px;
+    color: rgb(107, 130, 154);
+    text-decoration: underline;
+}
+#allefavoritt img{
+    display: block;
+    margin-left: auto;
+    width: 50px;
+    margin-top: 10px;
+    
+}
+#allefavoritt img:hover{
+    filter: blur(0.7px);
+}
+#artAllespiller button{
+    border: none;
+    font-size: 20px;
+    color: rgb(250, 182, 54);
+}
+@media (max-width:1200px){
+
+#listehovedskrift{
+    margin-top: 20px;
+    font-size: 18px;
+    margin-bottom: 15px;
+}
+#listeSortering{
+    margin-left: 400px;
+    margin-top: 30px;
+}
+
+#fotball-liste{
+    position: relative;
+    width: 350px;
+    margin: 100px auto 0;
+    border-radius: 5px;
+    margin-top: 40px;
+
+}
+#fotball-liste li{
+    padding: 10px 15px;
+    margin: 5px 0;
+    transition: .5s;
+    margin-top: 5px;
+}
+#fotball-liste li span:nth-child(1){
+    width: 70px;
+}
+#tilbakeknapp{
+    font-size: 14px;
+
+}
+.ranking{
+    font-size: 15px;
+}
+.navn{
+    font-size: 15px;
+}
+#artAllespiller img{
+    width: 200px;
+}
+#artAllespiller img:hover{
+    width: 205px;
+}
+.spillerlogo{
+    width: 50px;
+    margin-top: 50px;
+}
+
+#artAllespiller h3{
+    font-size: 12px;
+}
+
+#alleSortering button{
+    font-size: 12px;
+}
+
+#alleSortering{
+    font-size: 11px;
+}
+#allehovedskrift{
+    margin-top: 30px;
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+#allefavoritt img{
+    width: 40px;
+    margin-top: 15px;
+    
+}
+#artAllespiller button{
+    font-size: 17px;
+}
+
+}
+
+@media (max-width:900px){
+#listehovedskrift{
+    margin-top: 30px;
+    font-size: 13px;
+    margin-bottom: 15px;
+}
+#listeSortering{
+    margin-left: 250px;
+    margin-top: 30px;
+
+}
+
+#artspiller{
+    display: block;
+    margin-right: 200px;
+    margin-left: 200px;
+    border-radius: 20px;
+    
+}
+    
+#fotball-liste{
+    width: 300px;
+    margin: 100px auto 0;
+    border-radius: 5px;
+    margin-top: 40px;
+    
+}
+#fotball-liste li{
+    padding: 10px 15px;
+    margin: 5px 0;
+    transition: .5s;
+    margin-top: 5px;
+}
+#fotball-liste li span:nth-child(1){
+    width: 70px;
+}
+#tilbakeknapp{
+    font-size: 12px;
+    
+}
+.ranking{
+    font-size: 12px;
+}
+.navn{
+    font-size: 12px;
+}
+#artAllespiller img{
+    width: 150px;
+}
+#artAllespiller img:hover{
+    width: 155px;
+}
+.spillerlogo{
+    width: 40px;
+    margin-top: 30px;
+}
+
+#artAllespiller h3{
+    font-size: 11px;
+}
+#selAlleSorter{
+    font-size: 10px;
+}
+
+#alleSortering button{
+    font-size: 11px;
+}
+
+#allehovedskrift{
+    margin-top: 30px;
+    font-size: 15px;
+    margin-bottom: 10px;
+}
+
+#allefavoritt img{
+    width: 30px;
+    margin-top: 15px;
+    
+}
+#artAllespiller button{
+    font-size: 15px;
+}
+
+
+}
+@media (max-width:600px){
+#listehovedskrift{
+    margin-top: 40px;
+    font-size: 10px;
+    margin-bottom: 15px;
+}
+#listeSortering{
+    margin-left: 130px;
+    margin-top: 30px;
+
+
+}
+
+#artspiller{
+    display: block;
+    margin-right: 120px;
+    margin-left: 120px;
+    border-radius: 20px;
+    
+}
+    
+#fotball-liste{
+    width: 250px;
+    margin: 100px auto 0;
+    border-radius: 5px;
+    margin-top: 40px;
+    
+}
+#fotball-liste li{
+    padding: 10px 15px;
+    margin: 5px 0;
+    transition: .5s;
+    margin-top: 5px;
+}
+#fotball-liste li span:nth-child(1){
+    width: 70px;
+}
+#tilbakeknapp{
+    font-size: 10px;
+    
+}
+.ranking{
+    font-size: 10px;
+}
+.navn{
+    font-size: 10px;
+}
+#artAllespiller img{
+    width: 70px;
+}
+#artAllespiller img:hover{
+    width: 75px;
+}
+.spillerlogo{
+    width: 20px;
+    margin-top: 20px;
+}
+
+#artAllespiller h3{
+    font-size: 5px;
+}
+#selAlleSorter{
+    font-size: 6px;
+}
+
+#alleSortering button{
+    font-size: 7px;
+}
+
+#allehovedskrift{
+    margin-top: 30px;
+    font-size: 10px;
+    margin-bottom: 5px;
+}
+
+#allefavoritt img{
+    width: 22px;
+    margin-top: 5px;
+    
+}
+#artAllespiller button{
+    font-size: 8px;
+}
+    
+    
+}

@@ -1,0 +1,547 @@
+
+#nav2{
+    background-color: white;
+}
+#nav2 a{
+    color: black;
+}
+#landcolor{
+    text-decoration: underline black;
+}
+.wrapper{
+    width: 860px;
+    margin: 0 auto;
+    margin-top: -17px;
+}
+.wrapper ul{
+    list-style: none;
+    margin-top: 2%;
+}
+.wrapper ul li{
+    background: #a5a5a5;
+    width: 170px;
+    border: 1px solid black;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    float: left;
+    color: black;
+    font-size: 17px;
+    position: relative;
+}
+.wrapper ul li:hover{
+    background: lightgrey;
+}
+.wrapper ul ul{
+    display: none;
+}
+.wrapper ul li:hover > ul{
+    display: block;
+}
+.wrapper ul ul ul{
+    margin-left: 170px;
+    top: 0;
+    position: absolute;
+}
+#artkart{
+    display: block;
+    margin-left: 1200px;
+    width: 210px;
+    margin-top: -50px;
+}
+#artkart2{
+    display: block;
+    margin-left: 1220px;
+    width: 150px;
+    margin-top: -50px;
+}
+#artkart3{
+    display: block;
+    margin-left: 1180px;
+    width: 250px;
+    margin-top: -50px;
+}
+#artkart4{
+    display: block;
+    margin-left: 1230px;
+    width: 160px;
+    margin-top: -50px;
+
+}
+#europahovedskrift::first-letter{
+    color: #719b88;
+}
+#afrikahovedskrift::first-letter{
+    color: #f25613;
+}
+#nordamerikahovedskrift::first-letter{
+    color: #ffff18;
+}
+#søramerikahovedskrift::first-letter{
+    color:rgb(136, 72, 38);
+}
+
+#europahovedskrift{
+    font-size: 30px;
+    text-align: center;
+    border-bottom: solid black 1px;
+    margin-top: -35px;
+}
+#afrikahovedskrift{
+    font-size: 30px;
+    text-align: center;
+    border-bottom: solid black 1px;
+    margin-top: -35px;
+}
+#nordamerikahovedskrift{
+    font-size: 30px;
+    text-align: center;
+    border-bottom: solid black 1px;
+    margin-top: -35px;
+}
+#søramerikahovedskrift{
+    font-size: 30px;
+    text-align: center;
+    border-bottom: solid black 1px;
+    margin-top: -35px;
+}
+
+#artEuropaspiller img{
+    width: 260px;
+    margin-top: 20px;
+}
+#artEuropaspiller img:hover{
+    width: 265px;
+}
+
+#artAfrikaspiller img{
+    width: 260px;
+    margin-top: 20px;
+}
+#artAfrikaspiller img:hover{
+    width: 265px;
+}
+
+#artNordAmerikaspiller img{
+    width: 260px;
+    margin-top: 20px;
+}
+#artNordAmerikaspiller img:hover{
+    width: 265px;
+}
+
+#artSørAmerikaspiller img{
+    width: 260px;
+    margin-top: 20px;
+}
+#artSørAmerikaspiller img:hover{
+    width: 265px;
+}
+#artEuropaspiller{
+    display: grid;
+    grid-template-columns: repeat(5,1fr);
+    grid-gap: 22px;
+    margin-top: 50px;
+}
+#artAfrikaspiller{
+    display: grid;
+    grid-template-columns: repeat(5,1fr);
+    grid-gap: 22px;
+    margin-top: 50px;
+}
+#artNordAmerikaspiller{
+    display: grid;
+    grid-template-columns: repeat(5,1fr);
+    grid-gap: 22px;
+    margin-top: 50px;
+}
+#artSørAmerikaspiller{
+    display: grid;
+    grid-template-columns: repeat(5,1fr);
+    grid-gap: 22px;
+    margin-top: 50px;
+}
+#artEuropaspiller h3{
+    text-align: center;
+    color: #5b8772; ;
+}
+#artAfrikaspiller h3{
+    text-align: center;
+    color: #de6937; ;
+}
+#artNordAmerikaspiller h3{
+    text-align: center;
+    color: #f4ff25e0; ;
+}
+#artSørAmerikaspiller h3{
+    text-align: center;
+    color: rgb(135, 78, 47);
+}
+#selEuropaSorter{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    background-color: #add3c1;
+}
+#selAfrikaSorter{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    background-color: #f7752f;
+}
+#selNordAmerikaSorter{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    background-color: #ffff68;
+}
+#selSørAmerikaSorter{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    background-color: rgb(135, 84, 56);
+}
+@media (max-width:1200px){
+
+.wrapper{
+    width: 800px;
+    margin-top: -17px;
+}
+.wrapper ul li{
+    background: #a5a5a5;
+    width: 150px;
+    border: 1px solid black;
+    height: 47px;
+    line-height: 50px;
+    font-size: 15px;
+}
+.wrapper ul ul ul{
+    margin-left: 150px;
+    top: 0;
+    position: absolute;
+}
+#artkart{
+    margin-left: 950px;
+    width: 170px;
+    margin-top: -40px;
+}
+#artkart2{
+    margin-left: 980px;
+    width: 130px;
+    margin-top: -40px;
+}
+#artkart3{
+    margin-left: 960px;
+    width: 190px;
+    margin-top: -40px;
+}
+#artkart4{
+    margin-left: 990px;
+    width: 135px;
+    margin-top: -40px;
+
+}
+#europahovedskrift{
+    font-size: 25px;
+    margin-top: -25px;
+}
+#afrikahovedskrift{
+    font-size: 25px;
+    margin-top: -33px;
+}
+#nordamerikahovedskrift{
+    font-size: 25px;
+    margin-top: -30px;
+}
+#søramerikahovedskrift{
+    font-size: 25px;
+    margin-top: -32px;
+}
+
+#artEuropaspiller img{
+    width: 200px;
+}
+#artEuropaspiller img:hover{
+    width: 205px;
+}
+
+#artAfrikaspiller img{
+    width: 200px;
+}
+#artAfrikaspiller img:hover{
+    width: 205px;
+}
+
+#artNordAmerikaspiller img{
+    width: 200px;
+}
+#artNordAmerikaspiller img:hover{
+    width: 205px;
+}
+
+#artSørAmerikaspiller img{
+    width: 200px;
+}
+#artSørAmerikaspiller img:hover{
+    width: 205px;
+}
+
+#artEuropaspiller h3{
+    font-size: 15px;
+}
+
+#artAfrikaspiller h3{
+    font-size: 15px;
+}
+#artNordAmerikaspiller h3{
+    font-size: 15px;
+}
+#artSørAmerikaspiller h3{
+    font-size: 15px;
+}
+#selEuropaSorter{
+    font-size: 11.5px;
+}
+#selAfrikaSorter{
+    font-size: 11.5px;
+}
+#selNordAmerikaSorter{
+    font-size: 11.5px;
+}
+#selSørAmerikaSorter{
+    font-size: 11.5px;
+}
+
+
+}
+
+@media (max-width:900px){
+
+    .wrapper{
+        width: 600px;
+        margin-top: -12px;
+    }
+    .wrapper ul li{
+        background: #a5a5a5;
+        width: 110px;
+        border: 1px solid black;
+        height: 30px;
+        line-height: 30px;
+        font-size: 10px;
+    }
+    .wrapper ul ul ul{
+        margin-left: 110px;
+        top: 0;
+        position: absolute;
+    }
+    #artkart{
+        margin-left: 730px;
+        width: 110px;
+        margin-top: -20px;
+    }
+    #artkart2{
+        margin-left: 750px;
+        width: 80px;
+        margin-top: -25px;
+    }
+    #artkart3{
+        margin-left: 730px;
+        width: 110px;
+        margin-top: -20px;
+    }
+    #artkart4{
+        margin-left: 745px;
+        width: 90px;
+        margin-top: -30px;
+    
+    }
+    #europahovedskrift{
+        font-size: 17px;
+        margin-top: -20px;
+    }
+    #afrikahovedskrift{
+        font-size: 17px;
+        margin-top: -20px;
+    }
+    #nordamerikahovedskrift{
+        font-size: 17px;
+        margin-top: -23px;
+    }
+    #søramerikahovedskrift{
+        font-size: 17px;
+        margin-top: -22px;
+    }
+    
+    #artEuropaspiller img{
+        width: 150px;
+    }
+    #artEuropaspiller img:hover{
+        width: 155px;
+    }
+    
+    #artAfrikaspiller img{
+        width: 150px;
+    }
+    #artAfrikaspiller img:hover{
+        width: 205px;
+    }
+    
+    #artNordAmerikaspiller img{
+        width: 200px;
+    }
+    #artNordAmerikaspiller img:hover{
+        width: 155px;
+    }
+    
+    #artSørAmerikaspiller img{
+        width: 150px;
+    }
+    #artSørAmerikaspiller img:hover{
+        width: 155px;
+    }
+    
+    #artEuropaspiller h3{
+        font-size: 11px;
+    }
+    
+    #artAfrikaspiller h3{
+        font-size: 11px;
+    }
+    #artNordAmerikaspiller h3{
+        font-size: 11px;
+    }
+    #artSørAmerikaspiller h3{
+        font-size: 11px;
+    }
+    #selEuropaSorter{
+        font-size: 8px;
+    }
+    #selAfrikaSorter{
+        font-size: 8px;
+    }
+    #selNordAmerikaSorter{
+        font-size: 8px;
+    }
+    #selSørAmerikaSorter{
+        font-size: 8px;
+    }
+    
+
+}
+@media (max-width:600px){
+
+    .wrapper{
+        width: 400px;
+        margin-top: 10px;
+    }
+    .wrapper ul li{
+        background: #a5a5a5;
+        width: 70px;
+        border: 1px solid black;
+        height: 20px;
+        line-height: 20px;
+        font-size: 8px;
+    }
+    .wrapper ul ul ul{
+        margin-left: 70px;
+        top: 0;
+        position: absolute;
+    }
+    #artkart{
+        margin-left: 420px;
+        width: 70px;
+        margin-top: -15px;
+    }
+    #artkart2{
+        margin-left: 430px;
+        width: 50px;
+        margin-top: -20px;
+    }
+    #artkart3{
+        margin-left: 420px;
+        width: 80px;
+        margin-top: -14px;
+    }
+    #artkart4{
+        margin-left: 430px;
+        width: 55px;
+        margin-top: -20px;
+    
+    }
+    #europahovedskrift{
+        font-size: 11px;
+        margin-top: -10px;
+    }
+    #afrikahovedskrift{
+        font-size: 11px;
+        margin-top: -10px;
+    }
+    #nordamerikahovedskrift{
+        font-size: 11px;
+        margin-top: -10px;
+    }
+    #søramerikahovedskrift{
+        font-size: 11px;
+        margin-top: -10px;
+    }
+    
+    #artEuropaspiller img{
+        width: 70px;
+    }
+    #artEuropaspiller img:hover{
+        width: 72px;
+    }
+    
+    #artAfrikaspiller img{
+        width: 70px;
+    }
+    #artAfrikaspiller img:hover{
+        width: 72px;
+    }
+    
+    #artNordAmerikaspiller img{
+        width: 70px;
+    }
+    #artNordAmerikaspiller img:hover{
+        width: 72px;
+    }
+    
+    #artSørAmerikaspiller img{
+        width: 70px;
+    }
+    #artSørAmerikaspiller img:hover{
+        width: 72px;
+    }
+    
+    #artEuropaspiller h3{
+        font-size: 5px;
+    }
+    
+    #artAfrikaspiller h3{
+        font-size: 5px;
+    }
+    #artNordAmerikaspiller h3{
+        font-size: 5px;
+    }
+    #artSørAmerikaspiller h3{
+        font-size: 5px;
+    }
+    #selEuropaSorter{
+        font-size: 6px;
+    }
+    #selAfrikaSorter{
+        font-size: 8px;
+    }
+    #selNordAmerikaSorter{
+        font-size: 8px;
+    }
+    #selSørAmerikaSorter{
+        font-size: 8px;
+    }
+    
+}
+

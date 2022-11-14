@@ -1,0 +1,96 @@
+#favoritthovedskrift{
+    font-size: 30px;
+    border-bottom: solid black 1px;
+    text-align: center;
+    color: rgb(250, 190, 77);
+}
+#secFavorittknapp{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-gap: 25px;
+}
+#secFavorittknapp h3{
+    margin-top: 20px;
+    font-size: 20px;
+    text-align: center;
+    color:rgb(250, 182, 54);
+    
+}
+#secFavoritknapp img{
+    margin-top: 30px;
+}
+#secFavorittknapp img:hover{
+    filter: blur(1px);
+}
+#tilbakepil a{
+    font-size:  40px;
+    color: rgb(250, 182, 54);
+}
+#tilbakepil a:hover{
+    color: rgb(250, 203, 114);
+}
+#secFavorittknapp button{
+    font-size: 15px;
+    border: none;
+}
+#secFavorittknapp button:hover{
+    color: grey;
+}
+@media (max-width:1200px){
+
+#favoritthovedskrift{
+font-size: 25px;
+
+}
+
+#secFavorittknapp h3{
+    font-size: 17px;
+    
+}
+#tilbakepil a{
+    font-size:  35px;
+}
+#secFavorittknapp button{
+    font-size: 13px;
+}
+
+    
+}
+@media (max-width:900px){
+#favoritthovedskrift{
+    font-size: 20px;
+}
+
+#secFavorittknapp h3{
+    font-size: 13px;
+    
+}
+#tilbakepil a{
+    font-size:  30px;
+}
+#secFavorittknapp button{
+    font-size: 10px;
+}
+
+
+
+}
+@media (max-width:600px){
+#favoritthovedskrift{
+    font-size: 13px;
+}
+
+#secFavorittknapp h3{
+    font-size: 8px;
+    
+}
+#tilbakepil a{
+    font-size:  20px;
+}
+#secFavorittknapp button{
+    font-size: 8px;
+}
+
+
+    
+}

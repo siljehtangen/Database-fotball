@@ -1,0 +1,402 @@
+#artKeeperspiller img{
+    width: 260px;
+    margin-top: 20px;
+}
+#artKeeperspiller img:hover{
+    width: 265px;
+}
+
+#artForsvarspiller img{
+    width: 260px;
+    margin-top: 20px;
+}
+#artForsvarspiller img:hover{
+    width: 265px;
+}
+#artMidtbanespiller img{
+    width: 260px;
+    margin-top: 20px;
+}
+#artMidtbanespiller img:hover{
+    width: 265px;
+}
+#artAngrepspiller img{
+    width: 260px;
+    margin-top: 20px;
+
+}
+#artAngrepspiller img:hover{
+    width: 265px;
+}
+
+
+.spillerlogo{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 70px;
+    margin-top: 70px;
+}
+
+#artKeeperspiller h3{
+    font-size: 15px;
+    text-align: center;
+    color: rgb(84, 193, 84);
+}
+#artForsvarspiller h3{
+    font-size: 15px;
+    text-align: center;
+    color: rgb(92, 92, 92);
+}
+#artMidtbanespiller h3{
+    font-size: 15px;
+    text-align: center;
+    color: blue;
+}
+#artAngrepspiller h3{
+    font-size: 15px;
+    text-align: center;
+    color: purple;
+}
+.active{
+    text-decoration: underline;
+}
+
+#keeperSortering button{
+    background-color: whitesmoke;
+    border: none;
+    color: rgb(84, 193, 84);
+}
+#keeperSortering button:hover{
+    color: darkgrey;
+}
+
+#forsvarSortering button{
+    background-color: whitesmoke;
+    border: none;
+    color: rgb(52, 52, 52);
+}
+#forsvarSortering button:hover{
+    color: darkgrey;
+}
+#midtbaneSortering button{
+    background-color: whitesmoke;
+    border: none;
+    color: blue;
+}
+#midtbaneSortering button:hover{
+    color: darkgrey;
+}
+
+#angrepSortering button{
+    background-color: whitesmoke;
+    border: none;
+    color: purple;
+}
+#angrepSortering button:hover{
+    color: darkgrey;
+}
+#keeperSortering{
+    font-size: 20px;
+    margin-top: 15px;
+    display: block;
+    margin-left: 10px;
+}
+#forsvarSortering{
+    margin-top: 20px;
+    font-size: 20px;
+    display: block;
+    margin-left: 10px;
+}
+#midtbaneSortering{
+    font-size: 20px;
+    margin-top: 15px;
+    display: block;
+    margin-left: 10px;
+
+}
+#angrepSortering{
+    font-size: 20px;
+    margin-top: 15px;
+    display: block;
+    margin-left: 10px;
+
+}
+#artKeeperspiller{
+    display: grid;
+    grid-template-columns: repeat(5,1fr);
+    grid-gap: 22px;
+    margin-top: 50px;
+}
+#artForsvarspiller{
+    display: grid;
+    grid-template-columns: repeat(5,1fr);
+    grid-gap: 20px;
+    margin-top: 50px;
+
+}
+#artMidtbanespiller{
+    display: grid;
+    grid-template-columns: repeat(5,1fr);
+    grid-gap: 20px;
+    margin-top: 50px;
+
+}
+#artAngrepspiller{
+    display: grid;
+    grid-template-columns: repeat(5,1fr);
+    grid-gap: 20px;
+    margin-top: 50px;
+
+}
+
+#artKeeperspiller2{
+    display: grid;
+    grid-template-columns: repeat(5,1fr);
+    grid-gap: 30px;
+}
+#artForsvarspiller2{
+    display: grid;
+    grid-template-columns: repeat(5,1fr);
+    grid-gap: 30px;
+}
+#artMidtbanespiller2{
+    display: grid;
+    grid-template-columns: repeat(5,1fr);
+    grid-gap: 30px;
+}
+#artAngrepspiller2{
+    display: grid;
+    grid-template-columns: repeat(5,1fr);
+    grid-gap: 30px;
+}
+#selKeeperSorter{
+    margin-top: 50px;
+    background-color: rgb(136, 203, 136);
+}
+#selForsvarSorter{
+    background-color: rgb(184, 184, 184);
+    margin-top: 50px;
+}
+#selMidtbaneSorter{
+    margin-top: 50px;
+    background-color: rgb(104, 104, 230);
+}
+#selAngrepSorter{
+    margin-top: 50px;
+    background-color: rgb(165, 117, 165);
+}
+@media (max-width:1200px){
+
+#artKeeperspiller img{
+    width: 200px;
+}
+ #artKeeperspiller img:hover{
+     width: 205px;
+}
+ #artForsvarspiller img{
+    width: 200px;
+}
+#artForsvarspiller img:hover{
+    width: 205px;
+}
+#artMidtbanespiller img{
+    width: 200px;
+}
+#artMidtbanespiller img:hover{
+     width: 205px;
+ }
+#artAngrepspiller img{
+    width: 200px;
+}
+#artAngrepspiller img:hover{
+    width: 205px;
+}  
+.spillerlogo{
+    width: 50px;
+    margin-top: 50px;
+}
+#artKeeperspiller h3{
+    font-size: 12px;
+}
+#artForsvarspiller h3{
+    font-size: 12px;
+}
+#artMidtbanespiller h3{
+    font-size: 12px;
+}
+#artAngrepspiller h3{
+    font-size: 12px;
+}
+
+#keeperSortering button{
+    font-size: 12px;
+}
+
+#forsvarSortering button{
+    font-size: 12px;
+}
+#midtbaneSortering button{
+    font-size: 12px;
+}
+
+#angrepSortering button{
+   font-size: 12px;
+}
+
+#selKeeperSorter{
+    font-size: 11px;
+}
+#selForsvarSorter{
+    font-size: 11px;
+}
+#selMidtbaneSorter{
+    font-size: 11px;
+}
+#selAngrepSorter{
+    font-size: 11px;
+}
+
+}
+
+@media (max-width:900px){
+#artKeeperspiller img{
+    width: 150px;
+}
+#artKeeperspiller img:hover{
+    width: 155px;
+}
+#artForsvarspiller img{
+    width: 150px;
+}
+#artForsvarspiller img:hover{
+    width: 155px;
+}
+#artMidtbanespiller img{
+    width: 150px;
+}
+#artMidtbanespiller img:hover{
+    width: 155px;
+}
+#artAngrepspiller img{
+    width: 150px;
+}
+#artAngrepspiller img:hover{
+    width: 155px;
+}  
+.spillerlogo{
+    width: 40px;
+    margin-top: 30px;
+}
+#artKeeperspiller h3{
+    font-size: 11px;
+}
+#artForsvarspiller h3{
+    font-size: 11px;
+}
+#artMidtbanespiller h3{
+    font-size: 11px;
+}
+#artAngrepspiller h3{
+    font-size: 11px;
+}
+    
+#keeperSortering button{
+    font-size: 11px;
+}
+    
+#forsvarSortering button{
+    font-size: 11px;
+}
+#midtbaneSortering button{
+    font-size: 11px;
+}
+#angrepSortering button{
+    font-size: 11px;
+}
+    
+#selKeeperSorter{
+    font-size: 10px;
+}
+#selForsvarSorter{
+    font-size: 10px;
+}
+#selMidtbaneSorter{
+    font-size: 10px;
+}
+#selAngrepSorter{
+    font-size: 10px;
+}
+
+}
+@media (max-width:600px){
+#artKeeperspiller img{
+    width: 70px;
+}
+#artKeeperspiller img:hover{
+    width: 75px;
+}
+#artForsvarspiller img{
+    width: 70px;
+}
+#artForsvarspiller img:hover{
+    width: 75px;
+}
+#artMidtbanespiller img{
+    width: 70px;
+}
+#artMidtbanespiller img:hover{
+    width: 75px;
+}
+#artAngrepspiller img{
+    width: 70px;
+}
+#artAngrepspiller img:hover{
+    width: 75px;
+}  
+.spillerlogo{
+    width: 20px;
+    margin-top: 20px;
+}
+#artKeeperspiller h3{
+    font-size: 5px;
+}
+#artForsvarspiller h3{
+    font-size: 5px;
+}
+#artMidtbanespiller h3{
+    font-size: 5px;
+}
+#artAngrepspiller h3{
+    font-size: 5px;
+}
+    
+#keeperSortering button{
+    font-size: 7px;
+}
+    
+#forsvarSortering button{
+    font-size: 7px;
+}
+#midtbaneSortering button{
+    font-size: 7px;
+}
+#angrepSortering button{
+    font-size: 7px;
+}
+    
+#selKeeperSorter{
+    font-size: 6px;
+}
+#selForsvarSorter{
+    font-size: 6px;
+}
+#selMidtbaneSorter{
+    font-size: 6px;
+}
+#selAngrepSorter{
+    font-size: 6px;
+}
+    
+}
+

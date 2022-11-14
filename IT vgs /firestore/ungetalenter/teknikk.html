@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Den neste fotballgenerasjonen</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Zen+Dots&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/nav.css">
+    <link rel="stylesheet" href="css/felles.css">
+    <link rel="stylesheet" href="css/ferdighet.css">
+    <link rel="stylesheet" href="file:///Users/siljetangen/Downloads/fontawesome-free-5.15.3-web/css/all.css">
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-firestore.js"></script>
+        
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+         https://firebase.google.com/docs/web/setup#available-libraries -->
+        
+    <script>
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+        apiKey: "AIzaSyAH22MpKolUDWuk3FNe-QZLWSE3f18enGw",
+        authDomain: "talent-5b043.firebaseapp.com",
+        projectId: "talent-5b043",
+        storageBucket: "talent-5b043.appspot.com",
+        messagingSenderId: "379030084325",
+        appId: "1:379030084325:web:f5b6188730d3bbeeb9920c"
+     };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    </script>
+
+</head>
+<body>
+    <header>
+
+        <section class="secOverskrift">
+            <article>
+                <img src="bilder/index/fotball.png" alt="">
+            </article >
+            <article>
+                <h1>40 BESTE BALLTALENTENE</h1>
+            </article>
+            <article>
+                <img src="bilder/index/fotball.png" alt="">
+            </article>
+        </section>
+
+        <section class="secHoved">
+            <article>
+                <img src="bilder/index/hovedbilde.jpg" alt="">
+            </article>
+            <article>
+                <img src="bilder/index/hovedbilde2.jpg" alt="">
+            </article>
+            <article>
+                <img src="bilder/index/hovedbilde3.jpg" alt="">
+            </article>
+        </section>
+
+        <article id="ferdighethjem">
+            <a href="index.html">
+                <i class="fas fa-home"></i>
+            </a>
+        </article>
+
+        <div id="sidebar" onclick="togglemenu()">
+            <div class="toggle-btn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul>
+                <a href="mentalitet.html">
+                    <li>Mentalitet</li>
+
+                </a>
+                <a href="spilleforståelse.html">
+                    <li>Spilleforståelse</li>
+                </a>
+                <a href="overblikk.html">
+                    <li>Overblikk</li>
+                </a>
+                <a href="styrke.html">
+                    <li>Styrke</li>
+
+                </a>
+                <a href="smidighet.html">
+                    <li>Smidighet</li>
+                </a>
+                <a href="hurtighet.html">
+                    <li>Hurtighet</li>
+                </a>
+                <a href="utholdenhet.html">
+                    <li>Utholdenhet</li>
+                </a>
+                <a href="teknikk.html">
+                    <li id="color">Teknikk</li>
+
+                </a>
+
+            </ul>
+        </div>
+    
+
+
+    </header>
+    <main>
+        <h2 id="ferdighetoverskrift">TEKNIKK</h2>
+        <p class="ferdighet-tekst">
+            Det er en rekke ferdigheter som alle trenger å mestre for å lykkes med å spille fotball. Du har sannsynligvis hørt trenere eller andre mennesker i spillet som kaller disse ferdighetene for “fotballgrunnlaget”.
+            Fotball er en sport hvor beina er de viktigste. Det er nødvendig med en rekke grunnleggende ferdigheter for å spille fotball, med avanserte spillere som kan bygge på de grunnleggende ferdighetene for mer kompleks og presis dribling, pasning og skyting. En fotballspillers ferdigheter varierer også fra en posisjon til en annen, med en keeper som trenger mye andre ferdigheter enn en feltspiller. Pasning er en av de mest grunnleggende ferdighetene i fotball, da det er hvordan du beveger ballen fra deg selv til en annen lagkamerat.
+            Enten du mottar en pasning som er på bakken eller reiser gjennom luften, vil du ønske å firkante skuldrene til retningen ballen kommer fra. Det er en rekke ukonvensjonelle måter å score et mål på, men den grunnleggende måten å prøver å score er ved å ta et skudd.
+            Utenom pasning er dribling den primære metoden for å flytte ballen oppover banen.
+
+        </p>
+       
+        <h4 id="ferdighet-spillerskrift">Spillere:</h4>
+
+        <section id="secFerdighetspiller"></section>
+   
+
+    </main>
+
+    <script>
+        function togglemenu(){
+            document.getElementById('sidebar').classList.toggle('active');
+        }
+
+        const db  = firebase.firestore();
+        const spiller = db.collection("spiller");
+
+        const secFerdighetspiller = document.querySelector("#secFerdighetspiller");
+
+        const hentFerdighetspiller= async () => {
+            const svar = await spiller.where("ferdighet","==","Teknikk").get();
+            for(const spiller of svar.docs){
+                console.log(spiller.data());
+                lagFerdighetspillerHTML(spiller.id, spiller.data());
+            }
+        }
+
+
+        const lagFerdighetspillerHTML = (id, spiller) => {
+            secFerdighetspiller.innerHTML += `
+              <div>
+                <a href="profil.html?id=${id}">
+                <img src="bilder/fotballspillere/${spiller.bilde}">
+                </a>
+              </div>
+            `;
+        }
+
+        hentFerdighetspiller();
+        
+      
+    </script>
+
+    
+</body>
+</html>

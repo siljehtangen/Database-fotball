@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Den neste fotballgenerasjonen</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Zen+Dots&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/nav.css">
+    <link rel="stylesheet" href="css/felles.css">
+    <link rel="stylesheet" href="css/ferdighet.css">
+    <link rel="stylesheet" href="file:///Users/siljetangen/Downloads/fontawesome-free-5.15.3-web/css/all.css">
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-firestore.js"></script>
+        
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+         https://firebase.google.com/docs/web/setup#available-libraries -->
+        
+    <script>
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+        apiKey: "AIzaSyAH22MpKolUDWuk3FNe-QZLWSE3f18enGw",
+        authDomain: "talent-5b043.firebaseapp.com",
+        projectId: "talent-5b043",
+        storageBucket: "talent-5b043.appspot.com",
+        messagingSenderId: "379030084325",
+        appId: "1:379030084325:web:f5b6188730d3bbeeb9920c"
+     };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    </script>
+
+</head>
+<body>
+    <header>
+        <section class="secOverskrift">
+            <article>
+                <img src="bilder/index/fotball.png" alt="">
+            </article >
+            <article>
+                <h1>40 BESTE BALLTALENTENE</h1>
+            </article>
+            <article>
+                <img src="bilder/index/fotball.png" alt="">
+            </article>
+        </section>
+
+        <section class="secHoved">
+            <article>
+                <img src="bilder/index/hovedbilde.jpg" alt="">
+            </article>
+            <article>
+                <img src="bilder/index/hovedbilde2.jpg" alt="">
+            </article>
+            <article>
+                <img src="bilder/index/hovedbilde3.jpg" alt="">
+            </article>
+        </section>
+
+        <article id="ferdighethjem">
+            <a href="index.html">
+                <i class="fas fa-home"></i>
+            </a>
+        </article>
+
+        <div id="sidebar" onclick="togglemenu()">
+            <div class="toggle-btn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul>
+                <a href="mentalitet.html">
+                    <li>Mentalitet</li>
+
+                </a>
+                <a href="spilleforståelse.html">
+                    <li>Spilleforståelse</li>
+                </a>
+                <a href="overblikk.html">
+                    <li>Overblikk</li>
+                </a>
+                <a href="styrke.html">
+                    <li id="color">Styrke</li>
+
+                </a>
+                <a href="smidighet.html">
+                    <li>Smidighet</li>
+                </a>
+                <a href="hurtighet.html">
+                    <li>Hurtighet</li>
+                </a>
+                <a href="utholdenhet.html">
+                    <li>Utholdenhet</li>
+                </a>
+                <a href="teknikk.html">
+                    <li>Teknikk</li>
+
+                </a>
+
+            </ul>
+        </div>
+    
+
+
+    </header>
+    <main>
+        <h2 id="ferdighetoverskrift">STYRKE</h2>
+        <p class="ferdighet-tekst">
+            Når folk tenker på styrke, tenker de ofte på store muskler og å kunne løfte mye vekt. Det er ikke nødvendigvis tilfelle når det gjelder styrke i fotball. Å ha for store muskler kan ofte være en dårlig ting for fotballspillere på grunn av dens negative innvirkning på fart og smidighet.
+            Fotballstyrke handler om å kunne håndtere alt som kastes mot deg på fotballbanen. Ikke bare må du ha styrke til å holde motstanderne av når du fanger ballen, du må også ha styrke til å ha utholdenhet til å holde seg på banen et helt spill. Selv om det er bra å løfte vekter for å øke litt, bør fotballspillere for det meste fokusere på å tonere kroppene mens de legger til muskelmasse. Fotballspillere må fokusere på å bygge styrke i hver muskel, så det ideelle treningsregimet vil ha veldig spesifikke øvelser som vil treffe alle disse musklene. 
+            Utholdenhet er ekstremt viktig i fotball, og å bygge opp kjernestyrken din kan ha stor innvirkning på utholdenheten din. Selv noen profesjonelle fotballspillere mangler styrke, og det er ganske enkelt å plukke ut spillerne nær slutten.
+
+        </p>
+       
+        <h4 id="ferdighet-spillerskrift">Spillere:</h4>
+
+        <section id="secFerdighetspiller"></section>
+   
+
+    </main>
+
+    <script>
+        function togglemenu(){
+            document.getElementById('sidebar').classList.toggle('active');
+        }
+
+        const db  = firebase.firestore();
+        const spiller = db.collection("spiller");
+
+        const secFerdighetspiller = document.querySelector("#secFerdighetspiller");
+
+        const hentFerdighetspiller= async () => {
+            const svar = await spiller.where("ferdighet","==","Styrke").get();
+            for(const spiller of svar.docs){
+                console.log(spiller.data());
+                lagFerdighetspillerHTML(spiller.id, spiller.data());
+            }
+        }
+
+
+        const lagFerdighetspillerHTML = (id, spiller) => {
+            secFerdighetspiller.innerHTML += `
+              <div>
+                <a href="profil.html?id=${id}">
+                <img src="bilder/fotballspillere/${spiller.bilde}">
+                </a>
+              </div>
+            `;
+        }
+
+        hentFerdighetspiller();
+        
+      
+    </script>
+
+    
+</body>
+</html>

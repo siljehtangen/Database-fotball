@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Den neste fotballgenerasjonen</title>
+    <link href="https://fonts.googleapis.com/css2?family=Zen+Dots&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/nav.css">
+    <link rel="stylesheet" href="css/felles.css">
+    <link rel="stylesheet" href="css/posisjon.css">
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-firestore.js"></script>
+        
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+         https://firebase.google.com/docs/web/setup#available-libraries -->
+        
+    <script>
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+        apiKey: "AIzaSyAH22MpKolUDWuk3FNe-QZLWSE3f18enGw",
+        authDomain: "talent-5b043.firebaseapp.com",
+        projectId: "talent-5b043",
+        storageBucket: "talent-5b043.appspot.com",
+        messagingSenderId: "379030084325",
+        appId: "1:379030084325:web:f5b6188730d3bbeeb9920c"
+     };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    </script>
+</head>
+<body>
+    <header>
+        <section class="secOverskrift">
+            <article>
+                <img src="bilder/index/fotball.png" alt="">
+            </article>
+            <article>
+                <h1>40 BESTE BALLTALENTENE</h1>
+            </article>
+            <article>
+                <img src="bilder/index/fotball.png" alt="">
+            </article>
+        </section>
+
+        <section class="secHoved">
+            <article>
+                <img src="bilder/index/hovedbilde.jpg" alt="">
+            </article>
+            <article>
+                <img src="bilder/index/hovedbilde2.jpg" alt="">
+            </article>
+            <article>
+                <img src="bilder/index/hovedbilde3.jpg" alt="">
+            </article>
+        </section>
+     
+        <nav>
+            <article class="dropdown-link">
+                <a id="understrek" class="hjem" href="index.html">Hjem</a>
+                <article class="artDropdown">
+                    <a class="dropdown-link2" href="alle.html">Alle</a>
+                    <a class="dropdown-link2" href="liste.html">Liste</a>
+                </article>
+            </article>
+            <a id="understrek" href="keepere.html"> Keepere</a>
+            <a id="active3" href="forsvarspillere.html"> Forsvarspillere</a>
+            <a id="understrek" href="midtbanespillere.html"> Midtbanespillere </a>
+            <a id="understrek" href="angrepspillere.html"> Angrepspillere</a>
+        </nav>
+
+    </header>
+    <main>
+
+        <section>
+            <div id="forsvarSortering">
+                <button id="alle" onclick="hentForsvarspiller()" class="active">Alle</button>
+                <button id="midtstopper" onclick="hentMidtstopperspiller('Midtstopper');">Midtstopper</button>
+                <button id="back" onclick="hentBackspiller('Back');">Back</button>
+                <select id="selForsvarSorter" onchange="hentForsvarspiller()">
+                    <option value="asc">Ranking høy til lav</option>
+                    <option value="desc">Ranking lav til høy</option>
+                </select>
+            </div>
+
+        </section>
+
+        <article id="artForsvarspiller">
+
+        </article>
+        <article id="artForsvarspiller2">
+
+        </article>
+    </main>
+
+    <script>
+        const db  = firebase.firestore();
+        const spiller = db.collection("spiller");
+
+        const artForsvarspiller = document.querySelector("#artForsvarspiller");
+       
+        const btnAlle = document.querySelector("#alle");
+        const btnMidtstopper = document.querySelector("#midtstopper");
+        const btnBack = document.querySelector("#back");
+        const sorteringsKnapper = document.querySelectorAll("#forsvarSortering button");
+
+        const selForsvarSorter = document.querySelector("#selForsvarSorter");
+
+
+        const hentForsvarspiller = async () => {
+            fjernUnderstreker();
+            btnAlle.classList.add("active");
+            artForsvarspiller.innerHTML = ``;
+            const svar = await spiller.orderBy ("ranking", selForsvarSorter.value).where("posisjon","==","Forsvarspiller").get();
+            for(const spiller of svar.docs){
+                console.log(spiller.data());
+                lagForsvarspillerHTML(spiller.id, spiller.data());
+            }
+            
+        }
+            const hentMidtstopperspiller = async () => {
+            fjernUnderstreker();
+            btnMidtstopper.classList.add("active");
+            artForsvarspiller.innerHTML = ``;
+            artForsvarspiller2.innerHTML = ``;
+            const svar = await spiller.where("rolle","==","Midtstopper").get();
+            for (const spiller of svar.docs){
+                lagForsvarspillerHTML(spiller.id, spiller.data());
+                lagForsvarspiller2HTML(spiller.data());
+            }
+        }
+
+        const hentBackspiller = async () => {
+            fjernUnderstreker();
+            btnBack.classList.add("active");
+            artForsvarspiller.innerHTML = ``;
+            artForsvarspiller2.innerHTML = ``;
+            const svar = await spiller.where("rolle","==","Back").get();
+            for (const spiller of svar.docs){
+                lagForsvarspillerHTML(spiller.id, spiller.data());
+                lagForsvarspiller2HTML(spiller.data());
+            }
+        }
+
+        const lagForsvarspillerHTML = (id, spiller) => {
+            artForsvarspiller.innerHTML += `
+              <div>
+               <h3> ${spiller.navn} </h3>
+               <a href="profil.html?id=${id}">
+                <img src="bilder/fotballspillere/${spiller.bilde}">
+                </a>
+              </div>
+            `;
+        }
+        const lagForsvarspiller2HTML = (spiller) => {
+            artForsvarspiller2.innerHTML += `
+            <div>
+               <img class="spillerlogo" src="bilder/logo/${spiller.logo}">
+            </div>
+            `;
+        }
+
+        const fjernUnderstreker = () =>{
+            for(const knapp of sorteringsKnapper){
+                knapp.classList.remove("active")
+            }
+        }
+
+        hentForsvarspiller();
+      
+    </script>
+</body>
+</html>
