@@ -1,0 +1,539 @@
+#secBottom{
+    margin-top: 30px;
+    border-bottom: solid black 2px;
+}
+.secHovedside{
+    margin-top: 30px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 100px;
+    
+}
+.secHovedside img{
+    width: 100%;
+
+}
+#artFerdighetbilde{
+    position: relative;
+    width: 330px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+#artFerdighetbilde a{
+    position: absolute;
+    background-color: black;
+    color: white;
+    text-decoration: none;
+    font-size: 15px;
+
+}
+#artFerdighetbilde a:hover{
+    font-size: 16px;
+    color :red;
+}
+#Mentalitet{
+    top: 5%;
+    left: 90%;
+}
+#Spillerforståelse{
+    top: 10%;
+    left: 90%;
+}
+#Overblikk{
+    top: 15%;
+    left: 90%;
+}
+#Styrke{
+    top: 30%;
+    left: 10%;
+}
+#Utholdenhet{
+    top: 43%;
+    left: 87%;
+}
+#Smidighet{
+    top: 65%;
+    left: 89%;
+}
+#Hurtighet{
+    top: 85%;
+    left: 87%;
+}
+#Teknikk{
+    top: 77%;
+    left: 0%;
+}
+
+#artKartbilde{
+    position: relative;
+    width: 510px;
+    margin-top: 30px;
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+}
+#artKartbilde a{
+    position: absolute;
+    background-color: black;
+    color: white;
+    text-decoration: none;
+    font-size: 15px;
+}
+#kartlenker #Europa:hover{
+    color: rgb(148, 206, 148);
+    font-size: 16px;
+}
+#kartlenker #Nord-Amerika:hover{
+    font-size: 16px;
+    color: rgb(228, 228, 40) ;
+}
+#kartlenker #Sør-Amerika:hover{
+    font-size: 16px;
+    color: rgb(142, 73, 34);
+
+}
+#kartlenker #Afrika:hover{
+    font-size: 16px;
+    color: #d85118;
+
+}
+#liste-link{
+    color: black;
+    text-decoration: none;
+}
+#liste-link:hover{
+    color: lightslategray;
+}
+
+#Europa{
+    left: 80%;
+    top: 27%;
+}
+#Afrika{
+    left: 85%;
+    top: 55%;
+}
+#Nord-Amerika{
+    left: 20%;
+    top: 30%;
+}
+#Sør-Amerika{
+    left: 45%;
+    top: 70%;
+}
+#artFotballbane{
+    position: relative;
+}
+#artFotballbane a{
+    position: absolute;
+}
+#fotballbane{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 800px;
+    margin-top: 30px;
+}
+#fotballenker img{
+    width: 30px;
+}
+#fotballenker img:hover{
+    width: 32px;
+    filter: blur(1px);
+}
+#dot1{
+    top: 50%;
+    left: 5%;
+}
+
+#dot2{
+    top: 12%;
+    left: 25%;
+}
+
+#dot3{
+    top: 37%;
+    left: 25%;
+}
+
+#dot4{
+    top: 60%;
+    left: 25%;
+}
+
+#dot5{
+    top: 85%;
+    left: 25%;
+}
+#dot6{
+    top: 48% ;
+    left: 40%;
+}
+
+#dot7{
+    top: 31%;
+    left: 50%;
+}
+
+#dot8{
+    top: 67%;
+    left: 50%;
+}
+
+#dot9{
+    top: 18%;
+    left: 69%;
+}
+
+#dot10{
+    left: 70%;
+    top: 79%;
+}
+#dot11{
+    top: 48%;
+    left: 83%;
+}
+.secIndex{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+#goldenboy20{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 160px;
+    margin-top: 70px;
+}
+#goldenboy19{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 150px;
+    margin-top: 100px;
+    
+}
+#artGoldenboy{
+    position: relative;
+}
+#artGoldenboy h5{
+    position: absolute;
+}
+#skriftGoldenboy{
+    font-size: 19px;
+    left: 20%;
+    top: 8%;
+    text-decoration: underline;
+}
+#skriftGoldenboy i{
+    color: rgb(154, 134, 21);
+}
+@media (max-width:1200px){
+
+#artFerdighetbilde{
+    width: 280px;
+}
+#artFerdighetbilde a{
+    font-size: 13px;
+
+}
+#artFerdighetbilde a:hover{
+    font-size: 14px;
+}
+#artKartbilde{
+    width: 420px;
+    margin-top: 33px;
+}
+#artKartbilde a{
+    font-size: 13px;
+}
+
+#kartlenker #Europa:hover{
+    font-size: 14px;
+}
+#kartlenker #Nord-Amerika:hover{
+    font-size: 14px;
+}
+#kartlenker #Sør-Amerika:hover{
+    font-size: 14px;
+
+}
+#kartlenker #Afrika:hover{
+    font-size: 14px;
+}
+
+#fotballbane{
+    width: 700px;
+    margin-top: 30px;
+}
+#fotballenker img{
+    width: 27px;
+}
+#fotballenker img:hover{
+    width: 28px;
+    filter: blur(1px);
+}
+#dot1{
+    top: 50%;
+}
+
+#dot2{
+    top: 12%;
+}
+
+#dot3{
+    top: 38%;
+}
+
+#dot4{
+    top: 61%;
+}
+
+#dot5{
+    top: 85%;
+}
+
+#dot6{
+    top: 50% ;
+}
+
+#dot7{
+    top: 30%;
+}
+
+#dot8{
+    top: 69%;
+}
+
+#dot9{
+    top: 20%;
+}
+
+#dot10{
+    top: 80%;
+}
+#dot11{
+    top: 50%;
+}
+
+#goldenboy20{
+    width: 140px;
+    margin-top: 60px;
+}
+#goldenboy19{
+    width: 130px;
+    margin-top: 90px;
+}
+#skriftGoldenboy{
+    font-size: 14px;
+    left: 13%;
+    top: 9%;
+}
+
+}
+
+@media (max-width:900px){
+
+    #artFerdighetbilde{
+        width: 230px;
+    }
+    #artFerdighetbilde a{
+        font-size: 11px;
+    
+    }
+    #artFerdighetbilde a:hover{
+        font-size: 12px;
+    }
+    #artKartbilde{
+        width: 350px;
+        margin-top: 28px;
+    }
+    #artKartbilde a{
+        font-size: 11px;
+    }
+    
+    #kartlenker #Europa:hover{
+        font-size: 12px;
+    }
+    #kartlenker #Nord-Amerika:hover{
+        font-size: 12px;
+    }
+    #kartlenker #Sør-Amerika:hover{
+        font-size: 12px;
+    
+    }
+    #kartlenker #Afrika:hover{
+        font-size: 12px;
+    }
+    #fotballbane{
+        width: 530px;
+        margin-top: 30px;
+    }
+    #fotballenker img{
+        width: 24px;
+    }
+    #fotballenker img:hover{
+        width: 25px;
+        filter: blur(1px);
+    }
+    #dot1{
+        top: 50%;
+    }
+    
+    #dot2{
+        top: 13%;
+    }
+    
+    #dot3{
+        top: 38%;
+    }
+    
+    #dot4{
+        top: 87%;
+    }
+    
+    #dot5{
+        top: 65%;
+    }
+    #dot6{
+        top: 50%;
+    }
+    
+    #dot7{
+        top: 30%;
+    }
+    
+    #dot8{
+        top: 70%;
+    }
+    
+    #dot9{
+        top: 20%;
+    }
+    
+    #dot10{
+        top: 77%;
+    }
+    #dot11{
+        top: 50%;
+    }
+    
+    #goldenboy20{
+        width: 110px;
+        margin-top: 40px;
+    }
+    #goldenboy19{
+        width: 105px;
+        margin-top: 60px;
+    }
+    #skriftGoldenboy{
+        font-size: 10px;
+        left: 6%;
+        top: 8%;
+    }
+
+    
+
+}
+@media (max-width:600px){
+
+    #artFerdighetbilde{
+        width: 150px;
+    }
+    #artFerdighetbilde a{
+        font-size: 8px;
+    
+    }
+    #artFerdighetbilde a:hover{
+        font-size: 9px;
+    }
+    #artKartbilde{
+        width: 210px;
+        margin-top: 28px;
+    }
+    #artKartbilde a{
+        font-size: 8px;
+    }
+    
+    #kartlenker #Europa:hover{
+        font-size: 9px;
+    }
+    #kartlenker #Nord-Amerika:hover{
+        font-size: 9px;
+    }
+    #kartlenker #Sør-Amerika:hover{
+        font-size: 9px;
+    
+    }
+    #kartlenker #Afrika:hover{
+        font-size: 9px;
+    }
+    #fotballbane{
+        width: 300px;
+        margin-top: 20px;
+    }
+    #fotballenker img{
+        width: 13px;
+    }
+    #fotballenker img:hover{
+        width: 14px;
+        filter: blur(1px);
+    }
+    #dot1{
+        top: 50%;
+    }
+    
+    #dot2{
+        top: 13%;
+    }
+    
+    #dot3{
+        top: 37%;
+    }
+    
+    #dot4{
+        top: 62%;
+    }
+    
+    #dot5{
+        top: 85%;
+    }
+    #dot6{
+        top: 50%;
+    }
+    
+    #dot7{
+        top: 30%;
+    }
+    
+    #dot8{
+        top: 70%;
+    }
+    
+    #dot9{
+        top: 20%;
+    }
+    
+    #dot10{
+        top: 78%;
+    }
+    #dot11{
+        top: 50%;
+    }
+    
+    #goldenboy20{
+        width: 60px;
+        margin-top: 35px;
+    }
+    #goldenboy19{
+        width: 57px;
+        margin-top: 47px;
+    }
+    #skriftGoldenboy{
+        font-size: 7px;
+        left: 6%;
+        top: 8%;
+    }
+
+    
+}

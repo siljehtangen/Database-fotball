@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Den neste fotballgenerasjonen</title>
+    <link href="https://fonts.googleapis.com/css2?family=Zen+Dots&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/nav.css">
+    <link rel="stylesheet" href="css/felles.css">
+    <link rel="stylesheet" href="css/undersider-hjem.css">
+    <link rel="stylesheet" href="file:///Users/siljetangen/Downloads/fontawesome-free-5.15.3-web/css/all.css">
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-firestore.js"></script>
+        
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+         https://firebase.google.com/docs/web/setup#available-libraries -->
+        
+    <script>
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+        apiKey: "AIzaSyAH22MpKolUDWuk3FNe-QZLWSE3f18enGw",
+        authDomain: "talent-5b043.firebaseapp.com",
+        projectId: "talent-5b043",
+        storageBucket: "talent-5b043.appspot.com",
+        messagingSenderId: "379030084325",
+        appId: "1:379030084325:web:f5b6188730d3bbeeb9920c"
+     };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    </script>
+</head>
+<body>
+    <header>
+        <section class="secOverskrift">
+            <article>
+                <img src="bilder/index/fotball.png" alt="">
+            </article >
+            <article>
+                <h1>40 BESTE BALLTALENTENE</h1>
+            </article>
+            <article>
+                <img src="bilder/index/fotball.png" alt="">
+            </article>
+        </section>
+        <section class="secHoved">
+            <article>
+                <img src="bilder/index/hovedbilde.jpg" alt="">
+            </article>
+            <article>
+                <img src="bilder/index/hovedbilde2.jpg" alt="">
+            </article>
+            <article>
+                <img src="bilder/index/hovedbilde3.jpg" alt="">
+            </article>
+        </section>
+
+        <nav>
+            <h2 id="listehovedskrift">SPILLERLISTE</h2>
+        </nav>
+
+
+    </header>
+    <main>
+        <a href="index.html">
+            <article>
+                <i id="tilbakeknapp" class="fas fa-arrow-circle-left"> Tilbake</i>
+            </article>
+        </a>
+
+
+        <div id="listeSortering">
+            <select id="selListeSorter" onchange="hentAllespiller()">
+                <option value="asc">Ranking høy til lav</option>
+                <option value="desc">Ranking lav til høy</option>
+            </select>
+        </div>
+
+        <article id="artspiller">
+
+        </article>
+
+    </main>
+
+    <script>
+        const db  = firebase.firestore();
+        const spiller = db.collection("spiller");
+
+        const artspiller = document.querySelector("#artspiller");
+
+        const selListeSorter = document.querySelector("#selListeSorter");
+
+
+        const hentAllespiller = async () => {
+            artspiller.innerHTML = ``;
+            const svar = await spiller.orderBy ("ranking", selListeSorter.value).get();
+            for(const spiller of svar.docs){
+                console.log(spiller.data());
+                lagspillerHTML(spiller.id, spiller.data());
+            }
+        }
+    
+        const lagspillerHTML = (id, spiller) => {
+            artspiller.innerHTML += `
+              <div id="liste">
+                <a href="profil.html?id=${id}">
+                <ul id="fotball-liste">
+               <li>
+               <span class="ranking">${spiller.ranking}. </span>
+               <span class="navn">${spiller.navn} </span>
+               </li>
+                </a>
+
+              </div>
+            `;
+
+        }
+
+        hentAllespiller();
+    </script>
+
+    
+</body>
+</html>

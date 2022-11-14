@@ -1,0 +1,174 @@
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.secHoved{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+
+}
+nav{
+
+    display: flex;
+    justify-content: space-around;
+    font-size: 22px;
+    margin-top: -5px;
+    background: whitesmoke;
+   
+}
+nav a{
+    margin-top: 30px;
+    text-decoration: none;
+    color: darkgrey; 
+}
+
+
+#understrek::after{
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    background: black;
+    transition: width .3s;
+
+}
+#understrek:hover::after{
+   width: 100%;
+   transition: width .3s ;
+}
+#active{
+    text-decoration: underline;  
+    color: black;
+}
+#active2{
+    color: rgb(0, 164, 0);
+    text-decoration: underline;
+}
+#active3{
+    color: rgb(69, 69, 69);
+    text-decoration: underline;
+}
+#active4{
+    color: rgb(1, 1, 206);
+    text-decoration: underline;
+}
+#active5{
+    color: rgb(80, 0, 80);
+    text-decoration: underline;
+}
+.artDropdown{
+    position: absolute;
+    left: 0;
+    top: 100%;
+    min-width: 100%;
+    opacity: 0;
+    visibility: hidden;
+    background-color: whitesmoke;
+    padding: 5px;
+}
+.dropdown-link{
+    position: relative;
+    display: block;
+    text-decoration: none;
+    margin-top: 30px;
+    font-size: 15px;
+  
+}
+.dropdown-link2:hover{
+    font-size: 16px;
+    color: black;
+}
+.dropdown-link2{
+    display: grid;
+    font-size: 15px;
+
+}
+
+.dropdown-link:hover .artDropdown{
+    opacity: 1;
+    visibility: visible;
+}
+.hjem{
+    font-size: 22px;
+}
+@media (max-width:1200px){
+
+    .hjem{
+        font-size: 20px;
+    }
+nav{
+    display: flex;
+    justify-content: space-around;
+    font-size: 18px;
+    margin-top: -10px;
+    background: whitesmoke;   
+    }
+
+.dropdown-link2:hover{
+    font-size: 15px;
+    color: black;
+}
+.dropdown-link2{
+    display: grid;
+    font-size: 14px;
+
+}
+
+}
+
+@media (max-width:900px){
+
+.hjem{
+    font-size: 15px;
+    }
+nav{
+    display: flex;
+    justify-content: space-around;
+    font-size: 15px;
+    margin-top: -20px;
+    background: whitesmoke;   
+    }
+
+.dropdown-link2:hover{
+    font-size: 12px;
+    color: black;
+}
+.dropdown-link2{
+    margin-top: 10px;
+    display: grid;
+    font-size: 11px;
+
+}
+
+}
+@media (max-width:600px){
+    .hjem{
+        font-size: 10px;
+        }
+    nav{
+        display: flex;
+        justify-content: space-around;
+        font-size: 10px;
+        margin-top: -25px;
+        background: whitesmoke;   
+        }
+    nav a{
+        margin-top: 35px;
+        text-decoration: none;
+        color: darkgrey; 
+     }
+    .dropdown-link2:hover{
+        font-size: 8px;
+        color: black;
+    }
+    .dropdown-link2{
+        margin-top: 5px;
+        display: grid;
+        font-size: 7px;
+    
+    }
+    
+    
+}

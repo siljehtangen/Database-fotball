@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Den neste fotballgenerasjonen</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Zen+Dots&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/nav.css">
+    <link rel="stylesheet" href="css/felles.css">
+    <link rel="stylesheet" href="css/kart.css">
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-firestore.js"></script>
+        
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+         https://firebase.google.com/docs/web/setup#available-libraries -->
+        
+    <script>
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+        apiKey: "AIzaSyAH22MpKolUDWuk3FNe-QZLWSE3f18enGw",
+        authDomain: "talent-5b043.firebaseapp.com",
+        projectId: "talent-5b043",
+        storageBucket: "talent-5b043.appspot.com",
+        messagingSenderId: "379030084325",
+        appId: "1:379030084325:web:f5b6188730d3bbeeb9920c"
+     };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    </script>
+</head>
+<body>
+    <header>
+        <section class="secOverskrift">
+            <article>
+                <img src="bilder/index/fotball.png" alt="">
+            </article >
+            <article>
+                <h1>40 BESTE BALLTALENTENE</h1>
+            </article>
+            <article>
+                <img src="bilder/index/fotball.png" alt="">
+            </article>
+        </section>
+
+        <section class="secHoved">
+            <article>
+                <img src="bilder/index/hovedbilde.jpg" alt="">
+            </article>
+            <article>
+                <img src="bilder/index/hovedbilde2.jpg" alt="">
+            </article>
+            <article>
+                <img src="bilder/index/hovedbilde3.jpg" alt="">
+            </article>
+        </section>
+        
+
+        <nav id="nav2">
+            <div class="wrapper">
+                <ul>
+                    <a href="index.html">
+                        <li>Hjem
+                            <ul>
+                                <a href="alle.html">
+                                    <li>Alle</li>
+                                </a>
+                                <a href="liste.html">
+                                    <li>Liste</li>
+                                </a>
+                                <li>Ferdigheter
+                                    <ul>
+                                        <a href="overblikk.html">
+                                         <li>Overblikk</li>
+                                        </a>
+                                        <a href="styrke.html">
+                                         <li>Styrke</li>
+                                        </a>
+                                        <a href="hurtighet.html">
+                                         <li>Hurtighet</li>
+                                        </a>
+                                        <a href="teknikk.html">
+                                         <li>Teknikk</li>
+                                        </a>
+                                    </ul>
+
+                                </li>
+                        </ul>
+                     </li>
+                    </a>
+                    <a href="europa.html">
+                        <li>Europa</li>
+                    </a>
+                    <a href="afrika.html">
+                        <li>Afrika</li>
+                    </a>
+                    <a href="nord-amerika.html">
+                        <li>Nord-Amerika</li>
+                    </a>
+                    <a href="sør-amerika.html">
+                        <li id="landcolor">Sør-Amerika</li>
+
+                    </a>
+                </ul>
+            </div>
+        </nav>
+
+
+    </header>
+    <main>
+        <article id="artkart4">
+            <img src="bilder/index/søramerika.png" alt="">
+        </article>
+
+        <h2 id="søramerikahovedskrift">SØR-AMERIKA</h2>
+
+          <section>
+
+                <select id="selSørAmerikaSorter" onchange="hentSørAmerikaspiller()">
+                    <option value="asc">Ranking høy til lav</option>
+                    <option value="desc">Ranking lav til høy</option>
+                </select>
+
+        </section>
+
+        <article id="artSørAmerikaspiller">
+
+        </article>
+
+
+    </main>
+
+    <script>
+        const db  = firebase.firestore();
+        const spiller = db.collection("spiller");
+
+        const artSørAmerikaSpiller = document.querySelector("#artSørAmerikaspiller");
+        const selSorter = document.querySelector("#selSørAmerikaSorter");
+
+        const hentSørAmerikaspiller = async () => {
+            artSørAmerikaspiller.innerHTML = ``;
+            const svar = await spiller.orderBy("ranking", selSørAmerikaSorter.value).where("verdensdel","==","Sør-Amerika").get();
+            for(const spiller of svar.docs){
+                console.log(spiller.data());
+                lagSørAmerikaspillerHTML(spiller.id, spiller.data());
+            }
+        }
+        
+        const lagSørAmerikaspillerHTML = (id, spiller) => {
+            artSørAmerikaspiller.innerHTML += `
+              <div>
+                <h3> ${spiller.navn} </h3>
+                <a href="profil.html?id=${id}">
+                <img src="bilder/fotballspillere/${spiller.bilde}">
+                </a>
+              </div>
+            `;
+        }
+
+
+        hentSørAmerikaspiller();
+    </script>
+
+    
+</body>
+</html>

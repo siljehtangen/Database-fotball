@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Den neste fotballgenerasjonen</title>
+    <link href="https://fonts.googleapis.com/css2?family=Zen+Dots&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/nav.css">
+    <link rel="stylesheet" href="css/felles.css">
+    <link rel="stylesheet" href="css/undersider-hjem.css">
+    <link rel="stylesheet" href="css/posisjon.css">
+    <link rel="stylesheet" href="file:///Users/siljetangen/Downloads/fontawesome-free-5.15.3-web/css/all.css">
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-firestore.js"></script>
+        
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+         https://firebase.google.com/docs/web/setup#available-libraries -->
+        
+    <script>
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+        apiKey: "AIzaSyAH22MpKolUDWuk3FNe-QZLWSE3f18enGw",
+        authDomain: "talent-5b043.firebaseapp.com",
+        projectId: "talent-5b043",
+        storageBucket: "talent-5b043.appspot.com",
+        messagingSenderId: "379030084325",
+        appId: "1:379030084325:web:f5b6188730d3bbeeb9920c"
+     };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    </script>
+</head>
+<body>
+    <header>
+        <section class="secOverskrift">
+            <article>
+                <img src="bilder/index/fotball.png" alt="">
+            </article >
+            <article>
+                <h1>40 BESTE BALLTALENTENE</h1>
+            </article>
+            <article>
+                <img src="bilder/index/fotball.png" alt="">
+            </article>
+        </section>
+        <section class="secHoved">
+            <article>
+                <img src="bilder/index/hovedbilde.jpg" alt="">
+            </article>
+            <article>
+                <img src="bilder/index/hovedbilde2.jpg" alt="">
+            </article>
+            <article>
+                <img src="bilder/index/hovedbilde3.jpg" alt="">
+            </article>
+        </section>
+        <nav>
+            <h2 id="allehovedskrift">DEN NESTE FOTBALLGENERASJONEN</h2>
+        </nav>
+
+
+    </header>
+    <main>
+        <a href="index.html">
+            <article>
+                <i id="tilbakeknapp" class="fas fa-arrow-circle-left"> Tilbake</i>
+            </article>
+        </a>
+
+           <article id="allefavoritt">
+                <a href="favorittknapp.html">
+                 <img src="bilder/logo/stjerne.png" alt="">
+                </a>
+            
+
+           </article>
+
+
+        <section>
+            <div id="alleSortering">
+                <button id="alle" onclick="hentAllespiller()" class="active">Alle</button>
+                <button id="keeper" onclick="hentKeepere('Keeper')">Keeper</button>
+                <button id="forsvar" onclick="hentForsvarspiller('Forsvarspiller')">Forsvar</button>
+                <button id="midtbane" onclick="hentMidtbanespiller('Midtbanespiller');">Midtbane</button>
+                <button id="angrep" onclick="hentAngrepspiller('Angrepspiller');">Angrep</button>
+                <select id="selAlleSorter" onchange="hentAllespiller()">
+                    <option value="asc">Ranking høy til lav</option>
+                    <option value="desc">Ranking lav til høy</option>
+                </select>
+            </div>
+        </section>
+
+
+        <article id="artAllespiller">
+
+        </article>
+        <article id="artAllespiller2">
+
+        </article>
+    </main>
+
+    <script>
+        const db  = firebase.firestore();
+        const spiller = db.collection("spiller");
+        const favorittknapp = db.collection("spillerIFavorittknapp");
+
+
+        const artAllespiller = document.querySelector("#artAllespiller");
+
+        const btnAlle = document.querySelector("#alle");
+        const btnKeeper= document.querySelector("#keeper");
+        const btnForsvar = document.querySelector("#forsvar");
+        const btnMidtbane = document.querySelector("#midtbane");
+        const btnAngrep = document.querySelector("#angrep");
+
+        const selAlleSorter = document.querySelector("#selAlleSorter");
+        const sorteringsKnapper = document.querySelectorAll("#alleSortering button");
+
+        const hentAllespiller = async () => {
+            fjernUnderstreker();
+            btnAlle.classList.add("active");
+            artAllespiller.innerHTML = ``;
+            artAllespiller2.innerHTML = ``;
+            const svar = await spiller.orderBy ("ranking", selAlleSorter.value).get();
+            for(const spiller of svar.docs){
+                console.log(spiller.data());
+                lagAllespillerHTML(spiller.id, spiller.data());
+            }
+        }
+        const hentKeepere = async () => {
+            fjernUnderstreker();
+            btnKeeper.classList.add("active");
+            artAllespiller.innerHTML = ``;
+            artAllespiller2.innerHTML = ``;
+            const svar = await spiller.where("posisjon","==","Keeper").get();
+            for (const spiller of svar.docs){
+                lagAllespillerHTML(spiller.id, spiller.data());
+                lagAllespiller2HTML(spiller.data())
+            }
+        }
+        const hentForsvarspiller = async () => {
+            fjernUnderstreker();
+            btnForsvar.classList.add("active");
+            artAllespiller.innerHTML = ``;
+            artAllespiller2.innerHTML = ``;
+            const svar = await spiller.where("posisjon","==","Forsvarspiller").get();
+            for (const spiller of svar.docs){
+                lagAllespillerHTML(spiller.id, spiller.data());
+            }
+        }
+        const hentMidtbanespiller = async () => {
+            fjernUnderstreker();
+            btnMidtbane.classList.add("active");
+            artAllespiller.innerHTML = ``;
+            artAllespiller2.innerHTML = ``;
+            const svar = await spiller.where("posisjon","==","Midtbanespiller").get();
+            for (const spiller of svar.docs){
+                lagAllespillerHTML(spiller.id, spiller.data());
+            }
+        }
+        const hentAngrepspiller = async () => {
+            fjernUnderstreker();
+            btnAngrep.classList.add("active");
+            artAllespiller.innerHTML = ``;
+            artAllespiller2.innerHTML = ``;
+            const svar = await spiller.where("posisjon","==","Angrepspiller").get();
+            for (const spiller of svar.docs){
+                lagAllespillerHTML(spiller.id, spiller.data());
+            }
+        }
+    
+        const lagAllespillerHTML = (id, spiller) => {
+            artAllespiller.innerHTML += `
+              <div>
+                <h3> ${spiller.navn} </h3>
+                <a href="profil.html?id=${id}">
+                <img src="bilder/fotballspillere/${spiller.bilde}">
+                </a>
+                <button onclick="leggIFavorittknapp('${id}')"><i class="fas fa-star"></i></button> 
+              </div>
+            `;
+        }
+
+        const lagAllespiller2HTML = (spiller) => {
+            artAllespiller2.innerHTML += `
+            <div>
+                <img class="spillerlogo" src="bilder/logo/${spiller.logo}">
+                </div>
+            
+            `;
+        }
+
+        const leggIFavorittknapp = async (id) => {
+            await favorittknapp.add({
+                spillerId: id,
+                tid: firebase.firestore.FieldValue.serverTimestamp()
+            });
+            alert("Spiller lagt til i favoritt")
+        }
+
+
+        const fjernUnderstreker = () =>{
+            for(const knapp of sorteringsKnapper){
+                knapp.classList.remove("active")
+            }
+        }
+
+    
+        hentAllespiller();
+    </script>
+
+    
+</body>
+</html>

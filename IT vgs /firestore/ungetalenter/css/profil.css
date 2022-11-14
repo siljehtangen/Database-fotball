@@ -1,0 +1,128 @@
+
+#secProfil{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 20px;
+    margin-top: 50px;
+}
+#profilbilde{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 500px;
+    margin-top: 90px;
+}
+#spillerinfo{
+    display: block;
+    margin-left: 100px;
+    margin-right: 100px;
+    border: solid black 2px;
+    margin-top: 20px;
+}
+#spillerbeskrivelse{
+    font-size: 15px;
+    text-align: center;
+    margin-top: 50px;
+}
+#spillerinfo h3{
+    font-size: 30px;
+    text-align: center;
+    text-decoration: underline;
+}
+
+#spillerinfo h4{
+    font-size: 17px;
+    text-align: center;
+    margin-top: 30px;
+}
+@media (max-width:1200px){
+
+#secProfil{
+    grid-gap: 20px;
+    margin-top: 50px;
+}
+#profilbilde{
+    width: 400px;
+    margin-top: 90px;
+}
+#spillerinfo{
+    border: solid black 2px;
+    margin-top: 20px;
+}
+#spillerbeskrivelse{
+    font-size: 13px;
+    text-align: center;
+    margin-top: 50px;
+}
+#spillerinfo h3{
+    font-size: 20px;
+}
+
+#spillerinfo h4{
+    font-size: 13px;
+    text-align: center;
+    margin-top: 30px;
+}
+
+}
+
+@media (max-width:900px){
+#secProfil{
+    grid-gap: 15px;
+    margin-top: 40px;
+}
+#profilbilde{
+    width: 300px;
+    margin-top: 70px;
+}
+#spillerinfo{
+    border: solid black 1px;
+    margin-top: 20px;
+}
+#spillerbeskrivelse{
+    font-size: 12px;
+    text-align: center;
+    margin-top: 60px;
+}
+#spillerinfo h3{
+    font-size: 15px;
+}
+
+#spillerinfo h4{
+    font-size: 11px;
+    text-align: center;
+    margin-top: 20px;
+}
+
+}
+@media (max-width:600px){
+  
+#secProfil{
+    grid-gap: 15px;
+    margin-top: 40px;
+}
+#profilbilde{
+    width: 150px;
+    margin-top: 70px;
+}
+#spillerinfo{
+    border: solid black 1px;
+    margin-top: 20px;
+
+}
+#spillerbeskrivelse{
+    font-size: 8px;
+    text-align: center;
+    margin-top: 60px;
+}
+#spillerinfo h3{
+    font-size: 8px;
+}
+
+#spillerinfo h4{
+    font-size: 7px;
+    text-align: center;
+    margin-top: 12px;
+}
+}
+

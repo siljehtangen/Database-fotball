@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Den neste fotballgenerasjonen</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Zen+Dots&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/nav.css">
+    <link rel="stylesheet" href="css/felles.css">
+    <link rel="stylesheet" href="file:///Users/siljetangen/Downloads/fontawesome-free-5.15.3-web/css/all.css">
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-firestore.js"></script>
+        
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+         https://firebase.google.com/docs/web/setup#available-libraries -->
+        
+    <script>
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+        apiKey: "AIzaSyAH22MpKolUDWuk3FNe-QZLWSE3f18enGw",
+        authDomain: "talent-5b043.firebaseapp.com",
+        projectId: "talent-5b043",
+        storageBucket: "talent-5b043.appspot.com",
+        messagingSenderId: "379030084325",
+        appId: "1:379030084325:web:f5b6188730d3bbeeb9920c"
+     };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    </script>
+</head>
+<body>
+    <header>
+
+
+        <section class="secOverskrift">
+            <article>
+                <img src="bilder/index/fotball.png" alt="">
+            </article >
+            <article>
+                <h1>40 BESTE BALLTALENTENE</h1>
+            </article>
+            <article>
+                <img src="bilder/index/fotball.png" alt="">
+            </article>
+        </section>
+        
+        <section class="secHoved">
+            <article>
+                <img src="bilder/index/hovedbilde.jpg" alt="">
+            </article>
+            <article>
+                <img src="bilder/index/hovedbilde2.jpg" alt="">
+            </article>
+            <article>
+                <img src="bilder/index/hovedbilde3.jpg" alt="">
+            </article>
+        </section>
+
+        <nav>
+            <article class="dropdown-link">
+                <a id="active" class="hjem" href="index.html">Hjem</a>
+                <article class="artDropdown">
+                    <a class="dropdown-link2" href="alle.html">Alle</a>
+                    <a class="dropdown-link2" href="liste.html">Liste</a>
+                </article>
+            </article>
+            <a id="understrek" href="keepere.html"> Keepere</a>
+            <a id="understrek" href="forsvarspillere.html"> Forsvarspillere</a>
+            <a id="understrek" href="midtbanespillere.html"> Midtbanespillere </a>
+            <a id="understrek" href="angrepspillere.html"> Angrepspillere</a>
+        </nav>
+
+
+    </header>
+    <main>
+        <section id="secBottom"></section>
+
+        <section class="secHovedside">
+            <article id="artFerdighetbilde">
+                <img src="bilder/index/ferdighet.jpg" alt="">
+                <article id="ferdighetlenker">
+                    <a id="Mentalitet" href="mentalitet.html">Mentalitet</a>
+                    <a id="Overblikk" href="overblikk.html">Overblikk</a>
+                    <a id="Spillerforståelse" href="spilleforståelse.html">Spillerforståelse</a>
+                    <a id="Styrke" href="styrke.html">Styrke</a>
+                    <a id="Smidighet" href="smidighet.html">Smidighet</a>
+                    <a id="Hurtighet" href="hurtighet.html">Hurtighet</a>
+                    <a id="Utholdenhet" href="utholdenhet.html">Utholdenhet</a>
+                    <a id="Teknikk" href="teknikk.html">Teknikk</a>
+                </article>
+            </article>
+            <article id="artKartbilde">
+                    <img src="bilder/index/kart.jpg" alt="">
+                    <article id="kartlenker"> 
+                        <a id="Europa" href="europa.html">Europa</a>
+                        <a id="Afrika" href="afrika.html">Afrika</a>
+                        <a id="Sør-Amerika" href="sør-amerika.html">Sør-Amerika</a>
+                        <a id="Nord-Amerika" href="nord-amerika.html">Nord-Amerika</a>
+                    </article>
+            </article>
+        </section>
+
+        <section id="secBottom"></section>
+        
+        <section class="secIndex">
+            <article id="artGoldenboy" >
+                <img id="goldenboy19" src="bilder/index/goldenboy19.png" alt="">
+                <div>
+                 <h5 id="skriftGoldenboy">Golden Boy 2019 <i class="fas fa-trophy"></i></h5>
+                </div>
+            </article>
+        <article id="artFotballbane">
+            <img id="fotballbane" src="bilder/index/fotballbane.jpg" alt="">
+            <div id="fotballenker">
+                <a id="dot1" href="keepere.html">
+                    <img src="bilder/index/dot2.png" alt="">
+                </a>
+                <a id="dot2" href="forsvarspillere.html">
+                    <img src="bilder/index/dot3.png" alt="">
+                </a>
+                <a id="dot3" href="forsvarspillere.html">
+                    <img src="bilder/index/dot3.png" alt="">
+                </a>
+                <a id="dot4" href="forsvarspillere.html">
+                    <img src="bilder/index/dot3.png" alt="">
+                </a>
+                <a id="dot5" href="forsvarspillere.html">
+                    <img src="bilder/index/dot3.png" alt="">
+                </a>
+                <a id="dot6" href="midtbanespillere.html">
+                    <img src="bilder/index/dot4.png" alt="">
+                </a>
+                <a id="dot7" href="midtbanespillere.html">
+                    <img src="bilder/index/dot4.png" alt="">
+                </a>
+                <a id="dot8" href="midtbanespillere.html">
+                    <img src="bilder/index/dot4.png" alt="">
+                </a>
+                <a id="dot9" href="angrepspillere.html">
+                    <img src="bilder/index/dot5.png" alt="">
+                </a>
+                <a id="dot10" href="angrepspillere.html">
+                    <img src="bilder/index/dot5.png" alt="">
+                </a>
+                <a id="dot11" href="angrepspillere.html">
+                    <img src="bilder/index/dot5.png" alt="">
+                </a>
+            </div>
+             </article>
+            <article id="artGoldenboy">
+                <img id="goldenboy20" src="bilder/index/goldenboy20.png" alt="">
+                <div>
+                    <h5 id="skriftGoldenboy">Golden Boy 2020 <i class="fas fa-trophy"></i></h5>
+                </div>
+            </article>
+
+    </section>
+
+    </main>
+
+    <script>
+      
+    </script>
+
+    
+</body>
+</html>

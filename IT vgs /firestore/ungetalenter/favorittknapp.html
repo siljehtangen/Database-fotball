@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Den neste fotballgenerasjonen</title>
+      <!-- The core Firebase JS SDK is always required and must be listed first -->
+      <script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-app.js"></script>
+      <script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-firestore.js"></script>
+      <link href="https://fonts.googleapis.com/css2?family=Zen+Dots&display=swap" rel="stylesheet">
+      <link rel="stylesheet" href="css/favorittknapp.css">
+      <link rel="stylesheet" href="css/nav.css">
+      <link rel="stylesheet" href="css/felles.css">
+      <link rel="stylesheet" href="file:///Users/siljetangen/Downloads/fontawesome-free-5.15.3-web/css/all.css">
+          
+      <!-- TODO: Add SDKs for Firebase products that you want to use
+           https://firebase.google.com/docs/web/setup#available-libraries -->
+          
+      <script>
+      // Your web app's Firebase configuration
+      var firebaseConfig = {
+          apiKey: "AIzaSyAH22MpKolUDWuk3FNe-QZLWSE3f18enGw",
+          authDomain: "talent-5b043.firebaseapp.com",
+          projectId: "talent-5b043",
+          storageBucket: "talent-5b043.appspot.com",
+          messagingSenderId: "379030084325",
+          appId: "1:379030084325:web:f5b6188730d3bbeeb9920c"
+       };
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+      </script>
+</head>
+<body>
+    <header>
+        <section class="secOverskrift">
+            <article>
+                <img src="bilder/index/fotball.png" alt="">
+            </article >
+            <article>
+                <h1>40 BESTE BALLTALENTENE</h1>
+            </article>
+            <article>
+                <img src="bilder/index/fotball.png" alt="">
+            </article>
+        </section>
+
+        <section class="secHoved">
+            <article>
+                <img src="bilder/index/hovedbilde.jpg" alt="">
+            </article>
+            <article>
+                <img src="bilder/index/hovedbilde2.jpg" alt="">
+            </article>
+            <article>
+                <img src="bilder/index/hovedbilde3.jpg" alt="">
+            </article>
+        </section>
+    </header>
+    <main>
+
+        <h2 id="favoritthovedskrift">Favoritter</h2>
+
+
+        <article id="tilbakepil">
+
+            <a href="alle.html">
+                <i class="fas fa-long-arrow-alt-left"></i>
+            </a>
+
+        </article>
+
+        <section id="secFavorittknapp">
+
+        </section>
+    </main>
+
+     
+
+    <script>
+        const secFavorittknapp = document.querySelector("#secFavorittknapp")
+        
+        const db  = firebase.firestore();
+        const spiller = db.collection("spiller");
+        const favorittknapp = db.collection("spillerIFavorittknapp")
+
+        const HentFavorittknapp = async () => {
+            secFavorittknapp.innerHTML = ``;
+
+            const svar = await favorittknapp.orderBy("tid", "desc").get();
+            for await (favoritt of svar.docs){
+                const spillerIFavorittknappId = favoritt.id;
+                const spillerId = favoritt.data() .spillerId;
+                const spillerSvar = await spiller.doc(spillerId).get();
+                lagFavorittknappHTML(spillerId, spillerSvar.data(), spillerIFavorittknappId);
+
+            }
+        }
+
+
+            const lagFavorittknappHTML = (id, spiller, spillerIFavorittknappId) => {
+            secFavorittknapp.innerHTML += `
+              <div>
+                <h3> ${spiller.navn} </h3>
+                <button onclick=fjernFraFavorittknapp('${spillerIFavorittknappId}')>Fjern</button>
+                <a href="profil.html?id=${id}">
+                <img src="bilder/fotballspillere/${spiller.bilde}">
+                </a>
+              </div>
+            `;
+        }
+             const fjernFraFavorittknapp = async (spillerIFavorittknappId) => {
+                await favorittknapp.doc(spillerIFavorittknappId).delete();
+             alert("Fjerner spiller fra favoritter")
+             HentFavorittknapp();
+
+             }
+            
+             HentFavorittknapp();
+
+    </script>
+    
+</body>
+</html>
